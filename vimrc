@@ -191,10 +191,12 @@ let g:unite_enable_smart_case = 1
 nnoremap <silent> ,a  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 " ファイル一覧
 nnoremap <silent> ,f  :<C-u>Unite -buffer-name=files file<CR>
+" Everything検索
+nnoremap <silent> ,e  :<C-u>Unite file_rec<CR>
 " バッファ一覧
-nnoremap <silent> ,e  :<C-u>Unite buffer<CR>
+nnoremap <silent> ,v  :<C-u>Unite buffer<CR>
 " 常用セット
-nnoremap <silent> ,u  :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> ,u  :<C-u>Unite buffer file_rec<CR>
 " 最近使用したファイル一覧
 nnoremap <silent> ,m  :<C-u>Unite file_mru<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
