@@ -139,8 +139,8 @@ map Y y$
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " 前後のバッファへ移動
-nnoremap <C-p> :bp<CR>
-nnoremap <C-n> :bn<CR>
+nnoremap <C-k> :bp<CR>
+nnoremap <C-j> :bn<CR>
 
 
 "------------------------------------------------------------
@@ -208,6 +208,12 @@ nnoremap <silent> ,g  :<C-u>Unite grep<CR>
 au FileType unite nnoremap <silent> <buffer> ,c :q<CR>
 au FileType unite inoremap <silent> <buffer> ,c <ESC>:q<CR>
 
+" unite mode でのキーマッピング
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+  imap <silent><buffer> <C-k> <C-p>
+  imap <silent><buffer> <C-j> <C-n>
+endfunction
 
 "------------------------------------------------------------
 " * VimFiler
