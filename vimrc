@@ -32,6 +32,7 @@ Bundle "Shougo/vimfiler"
 Bundle "honza/snipmate-snippets"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "goldfeld/vim-seek"
+Bundle "mattn/zencoding-vim"
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
@@ -156,7 +157,7 @@ let g:neocomplcache_min_syntax_length = 3
 " tabで候補を移動 & snippetsを展開
 imap <expr><tab> neocomplcache#sources#snippets_complete#expandable() ? "\<plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr><c-l> neocomplcache#complete_common_string()
-inoremap <expr><c-e> neocomplcache#close_popup()
+inoremap <expr><c-y> neocomplcache#close_popup()
 inoremap <expr><c-c> neocomplcache#cancel_popup()
 inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<c-h>"
 inoremap <expr><c-h> neocomplcache#smart_close_popup()."\<c-h>"
@@ -258,4 +259,35 @@ nnoremap <silent> gs :Gstatus<CR>
 " ggでGstatus modeのvimdiffを終了
 nnoremap <silent> gg <C-w><C-o>  
 
+"------------------------------------------------------------
+" * zen-coding
+"------------------------------------------------------------
+
+" codaのデフォルトと一緒にする
+imap <C-E> <C-Y>,
+let g:user_zen_leader_key = '<C-Y>'
+" 言語別に対応させる
+let g:user_zen_settings = {
+      \  'lang' : 'ja',
+      \  'html' : {
+      \    'filters' : 'html',
+      \    'indentation' : '  ',
+      \    'snippets' : {
+      \      'jq' : "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script>\n<script>\n\\$(document).ready(function() {\n\t|\n});\n</script>",
+      \    },
+      \  },
+      \  'javascript' : {
+      \    'snippets' : {
+      \      'jq' : "\\$(document).ready(function() {\n\t\\${cursor}\\${child}\n});",
+      \      'jq:json' : "\\$.getJSON(\"${cursor}\", function(data) {\n\t\\${child}\n});",
+      \      'jq:each' : "\\$.each(data, function(index, item) {\n\t\\${child}\n});",
+      \      'fn' : "(function() {\n\t\\${cursor}\n})();",
+      \      'tm' : "setTimeout(function() {\n\t\\${cursor}\n}, 100);",
+      \    },
+      \    'use_pipe_for_cursor' : 0,
+      \  },
+      \  'css' : {
+      \    'filters' : 'fc',
+      \  },
+      \}
 
