@@ -156,17 +156,13 @@ let g:neocomplcache_min_syntax_length = 3
 " tabで候補を移動 & snippetsを展開
 imap <expr><tab> neocomplcache#sources#snippets_complete#expandable() ? "\<plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr><c-l> neocomplcache#complete_common_string()
-inoremap <expr><c-y> neocomplcache#close_popup()
-inoremap <expr><c-e> neocomplcache#cancel_popup()
+inoremap <expr><c-e> neocomplcache#close_popup()
+inoremap <expr><c-c> neocomplcache#cancel_popup()
+inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<c-h>"
 inoremap <expr><c-h> neocomplcache#smart_close_popup()."\<c-h>"
-" Enterで補完ポップアップをキャンセルして改行
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-endfunction
-" Ctrl+e, w で候補を移動
-inoremap <expr><c-e> pumvisible() ? "\<C-n>" : "\<c-e>"
-inoremap <expr><c-w> pumvisible() ? "\<C-p>" : "\<c-w>"
+" Ctrl+j, k で候補を移動
+inoremap <expr><c-j> pumvisible() ? "\<C-n>" : "\<c-j>"
+inoremap <expr><c-k> pumvisible() ? "\<C-p>" : "\<c-k>"
 
 " 補完ポップアップのカラー設定
 hi Pmenu ctermbg=8
