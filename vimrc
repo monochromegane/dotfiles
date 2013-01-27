@@ -12,7 +12,6 @@ Bundle 'gmarik/vundle'
 "
 " vim-scripts repos
 " Bundle "rails.vim"
-Bundle "The-NERD-tree"
 Bundle "The-NERD-Commenter"
 Bundle "AutoClose"
 Bundle "quickhl.vim"
