@@ -31,8 +31,8 @@ Bundle "Shougo/unite.vim"
 Bundle "Shougo/vimfiler"
 Bundle "honza/snipmate-snippets"
 Bundle "Lokaltog/vim-easymotion"
-Bundle "goldfeld/vim-seek"
 Bundle "mattn/zencoding-vim"
+Bundle "rhysd/clever-f.vim"
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
