@@ -223,7 +223,10 @@ endfunction
 nnoremap <Space> :<C-u>VimFiler<CR>
 let g:vimfiler_as_default_explorer=1
 let g:vimfiler_safe_mode_by_default=0
-
+autocmd! FileType vimfiler call g:my_vimfiler_settings()
+function! g:my_vimfiler_settings()
+  nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_execute)", "\<Plug>(vimfiler_edit_file)")
+endfunction
 
 "------------------------------------------------------------
 " * EasyMotion
