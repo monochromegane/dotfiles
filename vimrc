@@ -34,6 +34,7 @@ Bundle "honza/snipmate-snippets"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "mattn/zencoding-vim"
 Bundle "rhysd/clever-f.vim"
+Bundle "glidenote/memolist.vim"
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
@@ -245,6 +246,15 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 " J, K で前後の行移動
 nmap J Mj
 nmap K Mk
+
+
+"------------------------------------------------------------
+" * memolist.vim
+"------------------------------------------------------------
+nnoremap <silent> mn :<C-u>MemoNew<CR>
+nnoremap <silent> ml :<C-u>Unite file:<C-r>=expand(g:memolist_path."/")<CR><CR>
+nnoremap <silent> mg :<C-u>Unite grep:<C-r>=expand(g:memolist_path."/")<CR><CR>
+nnoremap <silent> mf :<C-u>VimFiler <C-r>=expand(g:memolist_path."/")<CR><CR> 
 
 
 "------------------------------------------------------------
