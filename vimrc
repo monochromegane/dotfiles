@@ -203,7 +203,9 @@ nnoremap <silent> ,d  :<C-u>UniteWithBufferDir file<CR>
 " find検索
 nnoremap <silent> ,s  :<C-u>Unite find<CR>
 " grep検索
-nnoremap <silent> ,g  :<C-u>Unite grep<CR>
+nnoremap <silent> ,g  :<C-u>Unite grep -buffer-name=search-buffer<CR>
+" grep検索結果の再呼出
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
 
 " ,cで終了する
 au FileType unite nnoremap <silent> <buffer> ,c :q<CR>
