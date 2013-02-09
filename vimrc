@@ -320,5 +320,10 @@ let g:user_zen_settings = {
 "------------------------------------------------------------
 
 silent! nmap <C-r> <Plug>(quickrun)
-
+" 実行結果を下に表示
+" 実行後に出力バッファにカーソルを移動(qで閉じる)
+let g:quickrun_config = {
+  \ "*" : { 'split' : ''},
+  \ "_" : { "outputter/buffer/into" : 1,},}
+set splitbelow
 
