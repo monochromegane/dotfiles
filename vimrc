@@ -149,6 +149,8 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " 前後のバッファへ移動
 nnoremap <C-k> :bp<CR>
 nnoremap <C-j> :bn<CR>
+" バッファを削除
+nnoremap ,D :bd<CR>
 
 
 "------------------------------------------------------------
