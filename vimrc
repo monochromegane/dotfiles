@@ -130,6 +130,11 @@ set cursorline
 "スワップファイルをつくらない
 set noswapfile
 
+" 文字、改行コードを自動判別する
+:set encoding=utf-8
+:set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+:set fileformats=unix,dos,mac
+
 
 "------------------------------------------------------------
 " * 基本のキーマッピング
