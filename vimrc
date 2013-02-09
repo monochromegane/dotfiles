@@ -35,6 +35,7 @@ Bundle "Lokaltog/vim-easymotion"
 Bundle "mattn/zencoding-vim"
 Bundle "rhysd/clever-f.vim"
 Bundle "glidenote/memolist.vim"
+Bundle "thinca/vim-quickrun"
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
@@ -313,4 +314,11 @@ let g:user_zen_settings = {
       \    'filters' : 'fc',
       \  },
       \}
+
+"------------------------------------------------------------
+" * vim-quickrun
+"------------------------------------------------------------
+
+silent! nmap <C-r> <Plug>(quickrun)
+
 
