@@ -327,3 +327,12 @@ let g:quickrun_config = {
   \ "_" : { "outputter/buffer/into" : 1,},}
 set splitbelow
 
+" markdownをMarkedで開く
+let g:quickrun_config.markdown = {
+      \ 'outputter' : 'null',
+      \ 'command'   : 'open',
+      \ 'cmdopt'    : '-a',
+      \ 'args'      : 'Marked',
+      \ 'exec'      : '%c %o %a %s',
+      \ }
+
