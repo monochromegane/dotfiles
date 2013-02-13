@@ -36,6 +36,7 @@ Bundle "mattn/zencoding-vim"
 Bundle "rhysd/clever-f.vim"
 Bundle "glidenote/memolist.vim"
 Bundle "thinca/vim-quickrun"
+Bundle "monochromegane/unite-script"
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
@@ -214,6 +215,8 @@ nnoremap <silent> ,s  :<C-u>Unite find<CR>
 nnoremap <silent> ,g  :<C-u>Unite grep -buffer-name=search-buffer<CR>
 " grep検索結果の再呼出
 nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+" chrome bookmark
+nnoremap <silent> ,b  :<C-u>Unite script:osascript:~/.vim/bundle/unite-script/examples/chrome_bookmarks.scpt<CR>
 
 " ,cで終了する
 au FileType unite nnoremap <silent> <buffer> ,c :q<CR>
@@ -225,6 +228,7 @@ function! s:unite_my_settings()
   imap <silent><buffer> <C-k> <C-p>
   imap <silent><buffer> <C-j> <C-n>
 endfunction
+
 
 "------------------------------------------------------------
 " * VimFiler
