@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>query favorites</string>
+	<key>queryFavorites</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>select_aster</string>
+			<key>query</key>
+			<string>select
+  *
+from
+  ${0:$SP_SELECTED_TABLE}
+where
+  ${1:¦$SP_ASLIST_ALL_FIELDS¦} = ${2:''}</string>
+			<key>tabtrigger</key>
+			<string>sela</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>select</string>
+			<key>query</key>
+			<string>select
+  ${0:¦$SP_ASLIST_ALL_FIELDS¦}
+from
+  ${1:$SP_SELECTED_TABLE}
+where
+  ${2:¦$SP_ASLIST_ALL_FIELDS¦} = ${3:''}</string>
+			<key>tabtrigger</key>
+			<string>sel</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>set_wait_timeout</string>
+			<key>query</key>
+			<string>set wait_timeout = 7200</string>
+			<key>tabtrigger</key>
+			<string>wt</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>insert</string>
+			<key>query</key>
+			<string>insert into
+  ${0:$SP_SELECTED_TABLE}
+(
+  ${1:¦$SP_ASLIST_ALL_FIELDS¦},
+)
+values
+(
+  ${2:''},
+)</string>
+			<key>tabtrigger</key>
+			<string>ins</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>update</string>
+			<key>query</key>
+			<string>update
+  ${0:$SP_SELECTED_TABLE}
+set
+  ${1:¦$SP_ASLIST_ALL_FIELDS¦} = ${2:''},
+where
+  ${3:¦$SP_ASLIST_ALL_FIELDS¦} = ${4:''}</string>
+			<key>tabtrigger</key>
+			<string>upd</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>delete</string>
+			<key>query</key>
+			<string>delete from
+  ${0:$SP_SELECTED_TABLE}
+where
+  ${1:¦$SP_ASLIST_ALL_FIELDS¦} = ${2:''}</string>
+			<key>tabtrigger</key>
+			<string>del</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>range</string>
+			<key>query</key>
+			<string>'${0:$(date +"%Y%m%d%H%M%S" | tr -d "\n")}' &lt;= ${1:¦$SP_ASLIST_ALL_FIELDS¦} and $1 &lt;= '${2:$(date +"%Y%m%d%H%M%S" | tr -d "\n")}'</string>
+			<key>tabtrigger</key>
+			<string>range</string>
+		</dict>
+	</array>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
