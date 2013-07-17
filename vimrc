@@ -154,6 +154,8 @@ nnoremap <C-j> :bn<CR>
 " バッファを削除
 nnoremap ,D :bd<CR>
 
+" set numberのトグル
+nnoremap tn :setl number! number?<CR>
 
 "------------------------------------------------------------
 " * autocmd
