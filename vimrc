@@ -231,7 +231,7 @@ nnoremap <silent> ,d  :<C-u>UniteWithBufferDir file<CR>
 " find検索
 nnoremap <silent> ,s  :<C-u>Unite find<CR>
 " grep検索
-nnoremap <silent> ,g  :<C-u>Unite grep -buffer-name=search-buffer<CR>
+nnoremap <silent> ,g  :<C-u>Unite grep -buffer-name=search-buffer<CR><CR>
 " カーソル位置の単語をgrep検索
 nnoremap          ,cg :<C-u>Unite grep -buffer-name=search-buffer<CR><CR><C-R><C-W>
 " grep検索結果の再呼出
