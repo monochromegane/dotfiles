@@ -25,7 +25,7 @@ Bundle "vim-ruby/vim-ruby"
 Bundle "tpope/vim-rails"
 Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-surround"
-Bundle "Lokaltog/vim-powerline"
+Bundle "bling/vim-airline"
 Bundle "Shougo/neocomplcache"
 Bundle "Shougo/neosnippet"
 Bundle "Shougo/unite.vim"
@@ -59,7 +59,7 @@ syntax on
 
 " バッファを保存しなくても他のバッファを表示できるようにする
 set hidden
- 
+
 " コマンドライン補完を便利に
 set wildmenu
 
@@ -68,7 +68,7 @@ set showcmd
 
 " 検索語を強調表示（<Esc><Esc>を押すと現在の強調表示を解除する）
 set hlsearch
- 
+
 " 検索時に大文字・小文字を区別しない。ただし、検索後に大文字小文字が
 " 混在しているときは区別する
 set ignorecase
@@ -175,9 +175,9 @@ hi DiffText   ctermfg=black ctermbg=7
 
 
 "------------------------------------------------------------
-" * neocomplcache 
+" * neocomplcache
 "------------------------------------------------------------
- 
+
 let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 0
@@ -289,7 +289,7 @@ nmap K Mk
 nnoremap <silent> mn :<C-u>MemoNew<CR>
 nnoremap <silent> ml :<C-u>Unite file:<C-r>=expand(g:memolist_path."/")<CR><CR>
 nnoremap <silent> mg :<C-u>Unite grep:<C-r>=expand(g:memolist_path."/")<CR><CR>
-nnoremap <silent> mf :<C-u>VimFiler <C-r>=expand(g:memolist_path."/")<CR><CR> 
+nnoremap <silent> mf :<C-u>VimFiler <C-r>=expand(g:memolist_path."/")<CR><CR>
 
 
 "------------------------------------------------------------
@@ -306,7 +306,7 @@ nnoremap <silent> gs :Gstatus<CR>
 "  q -> close Gstatus window
 
 " ggでGstatus modeのvimdiffを終了
-nnoremap <silent> gg <C-w><C-o>  
+nnoremap <silent> gg <C-w><C-o>
 
 "------------------------------------------------------------
 " * zen-coding
