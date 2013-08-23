@@ -184,8 +184,7 @@ let g:neocomplcache_enable_camel_case_completion = 0
 let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 
-" tabで候補を移動 & snippetsを展開
-imap <expr><tab> neocomplcache#sources#snippets_complete#expandable() ? "\<plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<c-n>" : "\<tab>"
+" 候補を移動 & snippetsを展開
 inoremap <expr><c-l> neocomplcache#complete_common_string()
 inoremap <expr><c-y> neocomplcache#close_popup()
 inoremap <expr><c-c> neocomplcache#cancel_popup()
