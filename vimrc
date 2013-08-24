@@ -37,6 +37,7 @@ Bundle "glidenote/memolist.vim"
 Bundle "thinca/vim-quickrun"
 Bundle "monochromegane/unite-script"
 Bundle 'h1mesuke/vim-alignta'
+Bundle "scrooloose/syntastic"
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
