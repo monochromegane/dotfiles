@@ -38,6 +38,7 @@ Bundle "thinca/vim-quickrun"
 Bundle "monochromegane/unite-script"
 Bundle 'h1mesuke/vim-alignta'
 Bundle "scrooloose/syntastic"
+Bundle "osyo-manga/unite-quickfix"
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
@@ -238,6 +239,8 @@ nnoremap          ,cg :<C-u>Unite grep -buffer-name=search-buffer<CR><CR><C-R><C
 nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
 " chrome bookmark
 nnoremap <silent> ,b  :<C-u>Unite script:osascript:~/.vim/bundle/unite-script/examples/chrome_bookmarks.scpt<CR>
+" quick-fix
+nnoremap <silent> ,l  :<C-u>Unite location_list<CR>
 
 " ,cで終了する
 au FileType unite nnoremap <silent> <buffer> ,c :q<CR>
