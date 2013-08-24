@@ -36,6 +36,7 @@ Bundle "rhysd/clever-f.vim"
 Bundle "glidenote/memolist.vim"
 Bundle "thinca/vim-quickrun"
 Bundle "monochromegane/unite-script"
+Bundle 'h1mesuke/vim-alignta'
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
@@ -280,6 +281,12 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 nmap J Mj
 nmap K Mk
 
+
+"------------------------------------------------------------
+" * vim-alignta
+"------------------------------------------------------------
+let g:alignta_default_arguments="="
+vnoremap al :Alignta<Space><CR>
 
 "------------------------------------------------------------
 " * memolist.vim
