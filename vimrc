@@ -39,6 +39,7 @@ Bundle "monochromegane/unite-script"
 Bundle 'h1mesuke/vim-alignta'
 Bundle "scrooloose/syntastic"
 Bundle "osyo-manga/unite-quickfix"
+Bundle "tomtom/tcomment_vim"
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
