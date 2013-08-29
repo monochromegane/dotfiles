@@ -252,6 +252,8 @@ nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
 nnoremap <silent> ,b  :<C-u>Unite script:osascript:~/.vim/bundle/unite-script/examples/chrome_bookmarks.scpt<CR>
 " quick-fix
 nnoremap <silent> ,l  :<C-u>Unite location_list<CR>
+" snippets
+nnoremap <silent> ,sn :<C-u>Unite snippet<CR>
 
 " ,cで終了する
 au FileType unite nnoremap <silent> <buffer> ,c :q<CR>
