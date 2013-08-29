@@ -30,6 +30,7 @@ Bundle "Shougo/neocomplcache"
 Bundle "Shougo/neosnippet"
 Bundle "Shougo/unite.vim"
 Bundle "Shougo/vimfiler"
+Bundle "honza/vim-snippets"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "mattn/zencoding-vim"
 Bundle "rhysd/clever-f.vim"
@@ -187,7 +188,7 @@ let g:neocomplcache_enable_camel_case_completion = 0
 let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 
-" 候補を移動 & snippetsを展開
+" ポップアップの操作
 inoremap <expr><c-l> neocomplcache#complete_common_string()
 inoremap <expr><c-y> neocomplcache#close_popup()
 inoremap <expr><c-c> neocomplcache#cancel_popup()
@@ -196,6 +197,15 @@ inoremap <expr><c-h> neocomplcache#smart_close_popup()."\<c-h>"
 " Ctrl+j, k で候補を移動
 inoremap <expr><c-j> pumvisible() ? "\<C-n>" : "\<c-j>"
 inoremap <expr><c-k> pumvisible() ? "\<C-p>" : "\<c-k>"
+" Ctrl+i or Tab でSnippetsを展開
+imap <C-i> <Plug>(neosnippet_expand_or_jump)
+smap <C-i> <Plug>(neosnippet_expand_or_jump)
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+" スニペットファイル
+let g:neosnippet#snippets_directory='~/dotfiles/snippets, ~/.vim/bundle/vim-snippets/snippets'
 
 " 補完ポップアップのカラー設定
 hi Pmenu ctermbg=8
