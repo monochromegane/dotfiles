@@ -21,6 +21,7 @@
     l   = !tig
     sta = stash
     mt  = mergetool
+    clb = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 [mergetool]
     prompt     = false
     keepBackup = false
