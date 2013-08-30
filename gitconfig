@@ -1,0 +1,29 @@
+[include]
+    path = ~/.gitconfig.local
+[diff]
+    external = git_diff_wrapper
+[core]
+    excludesfile = ~/.gitignore
+[pager]
+    diff =
+[color]
+    ui = auto
+[alias]
+    a   = add
+    b   = branch
+    c   = commit
+    co  = checkout
+    df  = diff
+    dfc = diff --cached
+    dfs = diff --staged
+    f   = fetch --prune
+    s   = status
+    l   = !tig
+    sta = stash
+    mt  = mergetool
+[mergetool]
+    prompt     = false
+    keepBackup = false
+[merge]
+    tool = vimdiff
+
