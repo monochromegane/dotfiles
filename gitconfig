@@ -20,6 +20,8 @@
     s   = status
     l   = !tig
     sta = stash
+    me  = merge
+    re  = rebase
     mt  = mergetool
     clb = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 [mergetool]
