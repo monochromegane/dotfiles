@@ -10,6 +10,7 @@
     ui = auto
 [alias]
     a   = add
+    us  = reset HEAD
     b   = branch
     c   = commit
     co  = checkout
