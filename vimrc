@@ -200,6 +200,11 @@ inoremap <expr><c-k> pumvisible() ? "\<C-p>" : "\<c-k>"
 " Ctrl+i or Tab でSnippetsを展開
 imap <C-i> <Plug>(neosnippet_expand_or_jump)
 smap <C-i> <Plug>(neosnippet_expand_or_jump)
+" ポップアップ、タグが存在しない場合は通常のTabを入力
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
