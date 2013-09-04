@@ -3,6 +3,7 @@
 [diff]
     external = git_diff_wrapper
 [core]
+    editor = /usr/bin/vim
     excludesfile = ~/.gitignore
 [pager]
     diff =
