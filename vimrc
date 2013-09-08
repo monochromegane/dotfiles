@@ -104,8 +104,8 @@ set visualbell
 " そしてビジュアルベルも無効化する
 set t_vb=
 
-" 全モードでマウスを有効化
-set mouse=a
+" 全モードでマウスを無効化
+" set mouse=a
 
 " コマンドラインの高さを2行に
 set cmdheight=2
