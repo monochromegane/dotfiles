@@ -161,6 +161,9 @@ nnoremap ,D :bd<CR>
 " set numberのトグル
 nnoremap tn :setl number! number?<CR>
 
+" Ctrl+dでEsc
+inoremap <C-d> <Esc>
+
 "------------------------------------------------------------
 " * autocmd
 "------------------------------------------------------------
