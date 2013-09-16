@@ -167,7 +167,7 @@ nnoremap ,D :bd<CR>
 " set numberのトグル
 nnoremap tn :setl number! number?<CR>
 
-" Ctrl+dでEsc
+" Ctrl+d または Ctrl+lでEsc
 inoremap <C-d> <Esc>
 
 " Commandモードの履歴移動
@@ -202,8 +202,7 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 
 " ポップアップの操作
-inoremap <expr><c-l> neocomplcache#complete_common_string()
-inoremap <expr><c-y> neocomplcache#close_popup()
+inoremap <expr><c-l> pumvisible() ? neocomplcache#close_popup() : "\<Esc>"
 inoremap <expr><c-c> neocomplcache#cancel_popup()
 inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<c-h>"
 inoremap <expr><c-h> neocomplcache#smart_close_popup()."\<c-h>"
