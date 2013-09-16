@@ -176,7 +176,8 @@ cnoremap <C-k> <Up>
 cnoremap <C-j> <Down>
 
 " 終了
-nnoremap Q :qa<CR>
+nnoremap Q  :qa<CR>
+nnoremap ,S :suspend<CR>
 
 "------------------------------------------------------------
 " * autocmd

@@ -4,3 +4,4 @@ alias beu="bundle exec rails unicorn -c config/unicorn.rb"
 alias ber="bundle exec rake routes"
  
 alias cdd="cd ~/Documents"
+alias f="fg"
