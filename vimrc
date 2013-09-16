@@ -141,6 +141,8 @@ set noswapfile
 :set fileencodings=default,euc-jp,sjis,utf-8
 :set fileformats=unix,dos,mac
 
+" 履歴保存数
+set history=200
 
 "------------------------------------------------------------
 " * 基本のキーマッピング
@@ -163,6 +165,10 @@ nnoremap tn :setl number! number?<CR>
 
 " Ctrl+dでEsc
 inoremap <C-d> <Esc>
+
+" Commandモードの履歴移動
+cnoremap <C-k> <Up>
+cnoremap <C-j> <Down>
 
 "------------------------------------------------------------
 " * autocmd
