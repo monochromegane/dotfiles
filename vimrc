@@ -155,8 +155,9 @@ set history=200
 " Yの動作をDやCと同じにする
 map Y y$
 
-" <Esc><Esc>で検索後の強調表示を解除する
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
+" <Esc><Esc>またはCtrl-lで検索後の強調表示を解除する
+nmap <Esc><Esc> :nohlsearch<CR>
+nmap <C-l>      :nohlsearch<CR>
 
 " 前後のバッファへ移動
 nnoremap <C-k> :bp<CR>
