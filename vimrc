@@ -78,6 +78,9 @@ set hlsearch
 set ignorecase
 set smartcase
 
+" インクリメンタルサーチ
+set incsearch
+
 " オートインデント、改行、インサートモード開始直後にバックスペースキーで
 " 削除できるようにする
 set backspace=indent,eol,start
