@@ -42,6 +42,8 @@ Bundle 'h1mesuke/vim-alignta'
 Bundle "scrooloose/syntastic"
 Bundle "osyo-manga/unite-quickfix"
 Bundle "tomtom/tcomment_vim"
+Bundle "kana/vim-textobj-user"
+Bundle "osyo-manga/vim-textobj-multiblock"
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
@@ -338,6 +340,15 @@ vnoremap al :Alignta<Space><CR>
 " * syntastic
 "------------------------------------------------------------
 let g:syntastic_always_populate_loc_list = 1
+
+
+"------------------------------------------------------------
+" * textobj-multiblock
+"------------------------------------------------------------
+omap as <Plug>(textobj-multiblock-a)
+omap is <Plug>(textobj-multiblock-i)
+xmap as <Plug>(textobj-multiblock-a)
+xmap is <Plug>(textobj-multiblock-i)
 
 
 "------------------------------------------------------------
