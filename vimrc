@@ -232,6 +232,7 @@ endif
 let g:neosnippet#snippets_directory='~/dotfiles/snippets, ~/.vim/bundle/vim-snippets/snippets'
 
 " 補完ポップアップのカラー設定
+hi Pmenu ctermfg=7
 hi Pmenu ctermbg=8
 hi PmenuSel ctermbg=3
 hi PmenuSbar ctermbg=0
