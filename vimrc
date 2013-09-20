@@ -209,7 +209,7 @@ let g:neocomplete#enable_underbar_completion = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " ポップアップの操作
-inoremap <expr><c-l> pumvisible() ? neocomplete#close_popup() : "\<Esc>"
+inoremap <expr><c-l> pumvisible() ? neocomplete#close_popup()."\<Esc>" : "\<Esc>"
 inoremap <expr><c-c> neocomplete#cancel_popup()
 inoremap <expr><BS>  neocomplete#smart_close_popup()."\<c-h>"
 inoremap <expr><c-h> neocomplete#smart_close_popup()."\<c-h>"
