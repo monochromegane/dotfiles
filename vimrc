@@ -26,7 +26,7 @@ Bundle "tpope/vim-rails"
 Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-surround"
 Bundle "bling/vim-airline"
-Bundle "Shougo/neocomplcache"
+Bundle "Shougo/neocomplete.vim"
 Bundle "Shougo/neosnippet"
 Bundle "Shougo/unite.vim"
 Bundle "Shougo/vimfiler"
@@ -202,17 +202,17 @@ hi DiffText   ctermfg=black ctermbg=7
 " * neocomplcache
 "------------------------------------------------------------
 
-let g:neocomplcache_enable_at_startup = 1 " 起動時に有効化
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 0
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_min_syntax_length = 3
+let g:neocomplete#enable_at_startup = 1 " 起動時に有効化
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_camel_case_completion = 0
+let g:neocomplete#enable_underbar_completion = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " ポップアップの操作
-inoremap <expr><c-l> pumvisible() ? neocomplcache#close_popup() : "\<Esc>"
-inoremap <expr><c-c> neocomplcache#cancel_popup()
-inoremap <expr><BS>  neocomplcache#smart_close_popup()."\<c-h>"
-inoremap <expr><c-h> neocomplcache#smart_close_popup()."\<c-h>"
+inoremap <expr><c-l> pumvisible() ? neocomplete#close_popup() : "\<Esc>"
+inoremap <expr><c-c> neocomplete#cancel_popup()
+inoremap <expr><BS>  neocomplete#smart_close_popup()."\<c-h>"
+inoremap <expr><c-h> neocomplete#smart_close_popup()."\<c-h>"
 " Ctrl+j, k で候補を移動
 inoremap <expr><c-j> pumvisible() ? "\<C-n>" : "\<c-j>"
 inoremap <expr><c-k> pumvisible() ? "\<C-p>" : "\<c-k>"
