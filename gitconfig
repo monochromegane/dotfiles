@@ -3,7 +3,7 @@
 [diff]
     external = git_diff_wrapper
 [core]
-    editor = /usr/bin/vim
+    editor = /Applications/MacVim.app/Contents/MacOS/Vim
     excludesfile = ~/.gitignore
 [pager]
     diff =
