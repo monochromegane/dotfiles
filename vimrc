@@ -44,6 +44,7 @@ Bundle "osyo-manga/unite-quickfix"
 Bundle "tomtom/tcomment_vim"
 Bundle "kana/vim-textobj-user"
 Bundle "osyo-manga/vim-textobj-multiblock"
+Bundle "slim-template/vim-slim"
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
