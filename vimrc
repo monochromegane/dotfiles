@@ -38,6 +38,7 @@ Bundle "goldfeld/vim-seek"
 Bundle "glidenote/memolist.vim"
 Bundle "thinca/vim-quickrun"
 Bundle "monochromegane/unite-script"
+Bundle "monochromegane/unite-yaml"
 Bundle 'h1mesuke/vim-alignta'
 Bundle "scrooloose/syntastic"
 Bundle "osyo-manga/unite-quickfix"
@@ -280,6 +281,9 @@ nnoremap <silent> ,b  :<C-u>Unite script:osascript:~/.vim/bundle/unite-script/ex
 nnoremap <silent> ,l  :<C-u>Unite location_list<CR>
 " snippets
 nnoremap <silent> ,sn :<C-u>Unite snippet<CR>
+" yaml
+nnoremap <silent> ,y  :<C-u>Unite yaml-list<CR>
+nnoremap <silent> ,Y  :<C-u>UniteResume yaml-buffer<CR>
 
 " ,cで終了する
 au FileType unite nnoremap <silent> <buffer> ,c :q<CR>
