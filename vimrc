@@ -282,6 +282,7 @@ nnoremap <silent> ,l  :<C-u>Unite location_list<CR>
 " snippets
 nnoremap <silent> ,sn :<C-u>Unite snippet<CR>
 " yaml
+let g:unite_yaml_prefix = "Settings."
 nnoremap <silent> ,y  :<C-u>Unite yaml-list<CR>
 nnoremap <silent> ,Y  :<C-u>UniteResume yaml-buffer<CR>
 
