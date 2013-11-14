@@ -47,6 +47,7 @@ Bundle "osyo-manga/vim-textobj-multiblock"
 Bundle "slim-template/vim-slim"
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-dispatch'
+Bundle 'edsono/vim-matchit'
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
