@@ -48,6 +48,7 @@ Bundle "slim-template/vim-slim"
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-dispatch'
 Bundle 'edsono/vim-matchit'
+Bundle 'AndrewRadev/switch.vim'
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
@@ -426,6 +427,20 @@ nnoremap <silent> ,sf :<C-u>call RunCurrentSpecFile()<CR>
 nnoremap <silent> ,sc :<C-u>call RunNearestSpec()<CR>
 nnoremap <silent> ,sl :<C-u>call RunLastSpec()<CR>
 nnoremap <silent> ,sa :<C-u>call RunAllSpecs()<CR>
+
+"------------------------------------------------------------
+" * switch
+"------------------------------------------------------------
+
+nnoremap - :Switch<cr>
+let g:switch_custom_definitions = [
+  \   ['describe', 'context', 'specific', 'example'],
+  \   ['be_true', 'be_false'],
+  \   { '\.should_not': '\.should' },
+  \   ['\.to_not', '\.to'],
+  \   { '\([^. ]\+\)\.should\(_not\|\)': 'expect(\1)\.to\2' },
+  \   { 'expect(\([^. ]\+\))\.to\(_not\|\)': '\1.should\2' },
+  \ ]
 
 
 "------------------------------------------------------------
