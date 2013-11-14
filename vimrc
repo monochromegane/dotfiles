@@ -17,7 +17,6 @@ Bundle "AutoClose"
 Bundle "quickhl.vim"
 Bundle "endwise.vim"
 Bundle "ruby-matchit"
-Bundle "Vim-Rspec"
 
 " original repos on github
 " Bundle "tpope/vim-fugitive"
@@ -46,6 +45,8 @@ Bundle "tomtom/tcomment_vim"
 Bundle "kana/vim-textobj-user"
 Bundle "osyo-manga/vim-textobj-multiblock"
 Bundle "slim-template/vim-slim"
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'tpope/vim-dispatch'
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
@@ -414,6 +415,17 @@ let g:user_zen_settings = {
       \    'filters' : 'fc',
       \  },
       \}
+
+"------------------------------------------------------------
+" * vim-rspec
+"------------------------------------------------------------
+let g:rspec_command = "Dispatch rspec {spec}"
+
+nnoremap <silent> ,sf :<C-u>call RunCurrentSpecFile()<CR>
+nnoremap <silent> ,sc :<C-u>call RunNearestSpec()<CR>
+nnoremap <silent> ,sl :<C-u>call RunLastSpec()<CR>
+nnoremap <silent> ,sa :<C-u>call RunAllSpecs()<CR>
+
 
 "------------------------------------------------------------
 " * vim-quickrun
