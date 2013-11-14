@@ -355,10 +355,10 @@ let g:syntastic_always_populate_loc_list = 1
 "------------------------------------------------------------
 " * textobj-multiblock
 "------------------------------------------------------------
-omap as <Plug>(textobj-multiblock-a)
-omap is <Plug>(textobj-multiblock-i)
-xmap as <Plug>(textobj-multiblock-a)
-xmap is <Plug>(textobj-multiblock-i)
+omap ak <Plug>(textobj-multiblock-a)
+omap ik <Plug>(textobj-multiblock-i)
+xmap ak <Plug>(textobj-multiblock-a)
+xmap ik <Plug>(textobj-multiblock-i)
 
 
 "------------------------------------------------------------
