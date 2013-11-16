@@ -345,6 +345,7 @@ nmap K Mk
 "------------------------------------------------------------
 let g:alignta_default_arguments="="
 vnoremap al :Alignta<Space><CR>
+vnoremap ah :Alignta <<0 \ /1<CR>
 
 
 "------------------------------------------------------------
