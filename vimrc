@@ -177,6 +177,7 @@ nnoremap tn :setl number! number?<CR>
 
 " Ctrl+d または Ctrl+lでEsc
 inoremap <C-d> <Esc>
+vnoremap <C-l> <Esc>
 
 " Commandモードの履歴移動
 cnoremap <C-k> <Up>
