@@ -423,7 +423,7 @@ let g:user_zen_settings = {
 "------------------------------------------------------------
 " * vim-rspec
 "------------------------------------------------------------
-let g:rspec_command = "Dispatch rspec {spec}"
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 
 nnoremap <silent> ,sf :<C-u>call RunCurrentSpecFile()<CR>
 nnoremap <silent> ,sc :<C-u>call RunNearestSpec()<CR>
