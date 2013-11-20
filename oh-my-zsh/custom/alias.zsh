@@ -8,3 +8,4 @@ alias ber="bundle exec rake routes"
  
 alias cdd="cd ~/Documents"
 alias f="fg"
+alias bundle='nocorrect bundle'
