@@ -49,6 +49,7 @@ Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-dispatch'
 Bundle 'edsono/vim-matchit'
 Bundle 'AndrewRadev/switch.vim'
+Bundle 'jnwhiteh/vim-golang'
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
@@ -192,6 +193,7 @@ nnoremap ,S :suspend<CR>
 "------------------------------------------------------------
 if has("autocmd")
   autocmd FileType php setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType go  setlocal sw=8 sts=8 ts=8 et
 endif
 
 

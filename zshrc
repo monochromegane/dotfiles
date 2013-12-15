@@ -54,6 +54,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"
 
+export GOROOT="/usr/local/go"
+export GOPATH="$HOME/.go/go1.2"
+
 # export PATH="/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/miyakey/.rvm/bin:/Users/miyakey/Documents/tools/android-sdk-macosx/tools"
 # export MANPATH="/usr/local/man:$MANPATH"
 
