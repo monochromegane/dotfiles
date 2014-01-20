@@ -303,10 +303,10 @@ function! s:unite_my_settings()
   imap <silent><buffer> <C-j> <C-n>
 endfunction
 
-" unite grep に sg(The Silver Searcher - Ver.Shirogane) を使う
-if executable('sg')
-  let g:unite_source_grep_command = 'sg'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+" unite grep に pt(The Platinum Searcher) を使う
+if executable('pt')
+  let g:unite_source_grep_command = 'pt'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
   let g:unite_source_grep_recursive_opt = ''
 endif
 
