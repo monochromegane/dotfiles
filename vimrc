@@ -36,7 +36,6 @@ Bundle "rhysd/clever-f.vim"
 Bundle "goldfeld/vim-seek"
 Bundle "glidenote/memolist.vim"
 Bundle "thinca/vim-quickrun"
-Bundle "monochromegane/unite-script"
 Bundle "monochromegane/unite-yaml"
 Bundle 'h1mesuke/vim-alignta'
 Bundle "scrooloose/syntastic"
