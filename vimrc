@@ -192,7 +192,7 @@ nnoremap ,S :suspend<CR>
 "------------------------------------------------------------
 if has("autocmd")
   autocmd FileType php setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType go  setlocal sw=8 sts=8 ts=8 et
+  autocmd FileType go  setlocal sw=8 sts=8 ts=8 noet
 endif
 
 
