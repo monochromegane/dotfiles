@@ -32,8 +32,6 @@ Bundle "Shougo/vimfiler"
 Bundle "honza/vim-snippets"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "mattn/zencoding-vim"
-Bundle "rhysd/clever-f.vim"
-Bundle "goldfeld/vim-seek"
 Bundle "glidenote/memolist.vim"
 Bundle "thinca/vim-quickrun"
 Bundle "monochromegane/unite-yaml"
@@ -326,8 +324,11 @@ endfunction
 " * EasyMotion
 "------------------------------------------------------------
 
-" M で起動
-let g:EasyMotion_leader_key="M"
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Turn on case sensitive feature
+let g:EasyMotion_smartcase = 1
+
 " ホームポジションに近いキーを使う
 let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
 " 1 ストローク選択を優先する
@@ -337,8 +338,14 @@ hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
 
 " J, K で前後の行移動
-nmap J Mj
-nmap K Mk
+nmap J <Plug>(easymotion-j)
+nmap K <Plug>(easymotion-k)
+
+" s{char}{char}{label} で任意の2文字から始まるところへ移動
+nmap s <Plug>(easymotion-s2)
+
+" g/ で検索、Enterでラベルによる移動
+nmap g/ <Plug>(easymotion-sn)
 
 
 "------------------------------------------------------------
