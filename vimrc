@@ -435,7 +435,7 @@ let g:rspec_command = "Dispatch bin/rspec {spec}"
 
 nnoremap <silent> ,sf :<C-u>call RunCurrentSpecFile()<CR>
 nnoremap <silent> ,sc :<C-u>call RunNearestSpec()<CR>
-nnoremap <silent> ,sl :<C-u>call RunLastSpec()<CR>
+nnoremap <silent> ,ss :<C-u>call RunLastSpec()<CR>
 nnoremap <silent> ,sa :<C-u>call RunAllSpecs()<CR>
 
 "------------------------------------------------------------
