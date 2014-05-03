@@ -10,3 +10,5 @@ alias ber="bundle exec rake routes"
 alias cdd="cd ~/Documents"
 alias f="fg"
 alias bundle='nocorrect bundle'
+
+alias direnv_init="echo 'export PATH=\$PWD/bin:\$PATH' > .envrc && direnv allow"
