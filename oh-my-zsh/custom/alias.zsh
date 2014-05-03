@@ -6,6 +6,8 @@ alias gs="git status -s -b && git stash list"
 alias be='bundle exec'
 alias bi='bundle install'
 alias beu="bundle exec rails unicorn -c config/unicorn.rb"
+alias rakt="rake -T"
+alias rakr="rake routes"
  
 alias cdd="cd ~/Documents"
 alias f="fg"
