@@ -298,6 +298,7 @@ autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()
   imap <silent><buffer> <C-k> <C-p>
   imap <silent><buffer> <C-j> <C-n>
+  imap <silent><buffer> <C-d> <CR>
 endfunction
 
 " unite grep に pt(The Platinum Searcher) を使う
