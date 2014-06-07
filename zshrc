@@ -37,7 +37,7 @@ ZSH_THEME="simple"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to  shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
@@ -55,7 +55,7 @@ export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"
 
 export GOROOT="/usr/local/opt/go/libexec"
-export GOPATH="$HOME/.go/go1.2"
+export GOPATH="$HOME"
 export PATH="$GOPATH/bin:$PATH"
 
 eval "$(direnv hook zsh)"
