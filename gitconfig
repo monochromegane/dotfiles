@@ -31,4 +31,5 @@
     keepBackup = false
 [merge]
     tool = vimdiff
-
+[ghq]
+  root = ~/src
