@@ -16,3 +16,4 @@ alias f="fg"
 alias bundle='nocorrect bundle'
 
 alias direnv_init="echo 'export PATH=\$PWD/bin:\$PATH' > .envrc && direnv allow"
+alias ggdb='/usr/local/Cellar/gdb/7.7/bin/gdb'
