@@ -46,7 +46,7 @@ Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-dispatch'
 Bundle 'edsono/vim-matchit'
 Bundle 'AndrewRadev/switch.vim'
-Bundle 'jnwhiteh/vim-golang'
+Bundle 'fatih/vim-go'
 
 " non github repos
 " Bundle "git://git.wincent.com/command-t.git"
