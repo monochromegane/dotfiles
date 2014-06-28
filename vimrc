@@ -386,7 +386,7 @@ nnoremap <silent> mf :<C-u>VimFiler <C-r>=expand(g:memolist_path."/")<CR><CR>
 "------------------------------------------------------------
 
 nnoremap <silent> gb :Gblame<CR>
-nnoremap <silent> gd :Gdiff<CR>
+" nnoremap <silent> gd :Gdiff<CR>
 nnoremap <silent> gs :Gstatus<CR>
 " Gstatus mode での操作
 "  D -> git diff with vimdiff
@@ -474,4 +474,14 @@ let g:quickrun_config.markdown = {
       \ 'args'      : 'Marked',
       \ 'exec'      : '%c %o %a %s',
       \ }
+
+"------------------------------------------------------------
+" * vim-go
+"------------------------------------------------------------
+
+let g:go_snippet_engine = "neosnippet"
+
+au FileType go nmap gi <Plug>(go-info)
+au FileType go nmap gd <Plug>(go-def)
+au FileType go nmap gt <Plug>(go-test)
 
