@@ -27,9 +27,9 @@ Bundle "tpope/vim-surround"
 Bundle "bling/vim-airline"
 Bundle "Shougo/neocomplete.vim"
 Bundle "Shougo/neosnippet"
+Bundle "Shougo/neosnippet-snippets"
 Bundle "Shougo/unite.vim"
 Bundle "Shougo/vimfiler"
-Bundle "honza/vim-snippets"
 Bundle "Lokaltog/vim-easymotion"
 Bundle "mattn/zencoding-vim"
 Bundle "glidenote/memolist.vim"
@@ -204,7 +204,7 @@ hi DiffText   ctermfg=black ctermbg=7
 
 
 "------------------------------------------------------------
-" * neocomplcache
+" * neocomplete
 "------------------------------------------------------------
 
 let g:neocomplete#enable_at_startup = 1 " 起動時に有効化
@@ -234,7 +234,7 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 " スニペットファイル
-let g:neosnippet#snippets_directory='~/dotfiles/snippets, ~/.vim/bundle/vim-snippets/snippets'
+let g:neosnippet#snippets_directory='~/dotfiles/snippets'
 
 " 補完ポップアップのカラー設定
 hi Pmenu ctermfg=7
@@ -478,8 +478,6 @@ let g:quickrun_config.markdown = {
 "------------------------------------------------------------
 " * vim-go
 "------------------------------------------------------------
-
-let g:go_snippet_engine = "neosnippet"
 
 au FileType go nmap gi <Plug>(go-info)
 au FileType go nmap gd <Plug>(go-def)
