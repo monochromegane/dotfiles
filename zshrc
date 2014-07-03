@@ -54,7 +54,6 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"
 
-export GOROOT="/usr/local/opt/go/libexec"
 export GOPATH="$HOME"
 export PATH="$GOPATH/bin:$PATH"
 
