@@ -22,7 +22,6 @@ Bundle "ruby-matchit"
 " Bundle "tpope/vim-fugitive"
 Bundle "vim-ruby/vim-ruby"
 Bundle "tpope/vim-rails"
-Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-surround"
 Bundle "bling/vim-airline"
 Bundle "Shougo/neocomplete.vim"
@@ -382,52 +381,13 @@ nnoremap <silent> mf :<C-u>VimFiler <C-r>=expand(g:memolist_path."/")<CR><CR>
 
 
 "------------------------------------------------------------
-" * vim-fugitive
-"------------------------------------------------------------
-
-nnoremap <silent> gb :Gblame<CR>
-" nnoremap <silent> gd :Gdiff<CR>
-nnoremap <silent> gs :Gstatus<CR>
-" Gstatus mode での操作
-"  D -> git diff with vimdiff
-"  - -> toggle stage, unstage
-"  C -> commit
-"  q -> close Gstatus window
-
-" ggでGstatus modeのvimdiffを終了
-nnoremap <silent> gg <C-w><C-o>
-
-"------------------------------------------------------------
 " * zen-coding
 "------------------------------------------------------------
 
 " codaのデフォルトと一緒にする
 imap <C-E> <C-Y>,
 let g:user_zen_leader_key = '<C-Y>'
-" 言語別に対応させる
-let g:user_zen_settings = {
-      \  'lang' : 'ja',
-      \  'html' : {
-      \    'filters' : 'html',
-      \    'indentation' : '  ',
-      \    'snippets' : {
-      \      'jq' : "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script>\n<script>\n\\$(document).ready(function() {\n\t|\n});\n</script>",
-      \    },
-      \  },
-      \  'javascript' : {
-      \    'snippets' : {
-      \      'jq' : "\\$(document).ready(function() {\n\t\\${cursor}\\${child}\n});",
-      \      'jq:json' : "\\$.getJSON(\"${cursor}\", function(data) {\n\t\\${child}\n});",
-      \      'jq:each' : "\\$.each(data, function(index, item) {\n\t\\${child}\n});",
-      \      'fn' : "(function() {\n\t\\${cursor}\n})();",
-      \      'tm' : "setTimeout(function() {\n\t\\${cursor}\n}, 100);",
-      \    },
-      \    'use_pipe_for_cursor' : 0,
-      \  },
-      \  'css' : {
-      \    'filters' : 'fc',
-      \  },
-      \}
+
 
 "------------------------------------------------------------
 " * vim-rspec
