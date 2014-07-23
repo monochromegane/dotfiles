@@ -2,5 +2,9 @@
     "Keymap": {
         "C-k": "peco.SelectPrevious",
         "C-j": "peco.SelectNext"
+    },
+    "Style": {
+        "Selected": ["underline", "on_yellow", "black"],
+        "Matched": ["on_cyan", "black"]
     }
 }
