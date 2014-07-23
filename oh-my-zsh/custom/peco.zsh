@@ -22,3 +22,7 @@ function peco-kill-process() {
     ps ax -o pid,time,command | peco --query "$LBUFFER" | awk '{print $1}' | xargs kill
 }
 alias psk='peco-kill-process'
+
+# git checkout
+alias gcp='git checkout `git branch | peco | sed -e "s/\* //g" | awk "{print \$1}"`'
+alias gcop='gcp'
