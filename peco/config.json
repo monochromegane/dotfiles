@@ -1,7 +1,7 @@
 {
     "Keymap": {
-        "C-k": "peco.SelectPrevious",
-        "C-j": "peco.SelectNext"
+        "C-k": "peco.SelectUp",
+        "C-j": "peco.SelectDown"
     },
     "Style": {
         "Selected": ["underline", "on_yellow", "black"],
