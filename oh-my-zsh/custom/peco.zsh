@@ -38,7 +38,7 @@ function peco-cdr () {
 }
 zle -N peco-cdr
 
-bindkey '^i' peco-cdr
+bindkey '^l' peco-cdr
 
 # kill process
 function peco-kill-process() {
