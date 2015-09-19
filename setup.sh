@@ -13,6 +13,7 @@ install_packages
 # git
 echo "====> Setup git..."
 ln -sf $BASE_DIR/gitconfig ~/.gitconfig
+mkdir ~/bin
 for c in git_diff_wrapper git_editor_wrapper
 do
   ln -sf $BASE_DIR/bin/$c ~/bin/$c
