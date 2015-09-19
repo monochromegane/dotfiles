@@ -38,6 +38,9 @@ repository = 'Shougo/neosnippet-snippets'
 repository = 'Shougo/unite.vim'
 
 [[plugins]]
+repository = 'Shougo/neomru.vim'
+
+[[plugins]]
 repository = 'Shougo/vimfiler'
 
 [[plugins]]
@@ -81,6 +84,9 @@ repository = 'edsono/vim-matchit'
 
 [[plugins]]
 repository = 'fatih/vim-go'
+
+[[plugins]]
+repository = 'glidenote/memolist.vim'
 
 [[plugins]]
 repository = 'Shougo/vimproc.vim'
