@@ -18,3 +18,5 @@ alias direnv_init="echo 'export PATH=\$PWD/bin:\$PATH' > .envrc && direnv allow"
 alias ggdb='/usr/local/Cellar/gdb/7.7/bin/gdb'
 
 function cd() {builtin cd $@ && ls}
+
+alias pp='ps aux | peco'
