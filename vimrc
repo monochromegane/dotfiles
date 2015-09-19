@@ -1,56 +1,26 @@
 "------------------------------------------------------------
 " * Vundle Plugin
 "------------------------------------------------------------
-set nocompatible               " be iMproved
-filetype off                   " required!
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-" My Bundles here:
-"
-" vim-scripts repos
-" Bundle "rails.vim"
-Bundle "The-NERD-Commenter"
-Bundle "AutoClose"
-Bundle "quickhl.vim"
-Bundle "endwise.vim"
-Bundle "ruby-matchit"
 
-" original repos on github
-" Bundle "tpope/vim-fugitive"
-Bundle "vim-ruby/vim-ruby"
-Bundle "tpope/vim-rails"
-Bundle "tpope/vim-surround"
-Bundle "bling/vim-airline"
-Bundle "Shougo/neocomplete.vim"
-Bundle "Shougo/neosnippet"
-Bundle "Shougo/neosnippet-snippets"
-Bundle "Shougo/unite.vim"
-Bundle "Shougo/vimfiler"
-Bundle "Lokaltog/vim-easymotion"
-Bundle "mattn/zencoding-vim"
-Bundle "glidenote/memolist.vim"
-Bundle "thinca/vim-quickrun"
-Bundle "monochromegane/unite-yaml"
-Bundle 'h1mesuke/vim-alignta'
-Bundle "scrooloose/syntastic"
-Bundle "osyo-manga/unite-quickfix"
-Bundle "tomtom/tcomment_vim"
-Bundle "kana/vim-textobj-user"
-Bundle "osyo-manga/vim-textobj-multiblock"
-Bundle "slim-template/vim-slim"
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'tpope/vim-dispatch'
-Bundle 'edsono/vim-matchit'
-Bundle 'fatih/vim-go'
+if has('vim_starting')
+  if &compatible
+    set nocompatible
+  endif
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-" non github repos
-" Bundle "git://git.wincent.com/command-t.git"
-Bundle "git://github.com/Shougo/vimproc"
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-filetype plugin indent on     " required!
+call neobundle#load_cache()
+NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#load_toml('~/.vim/neobundle.toml')
+call neobundle#load_toml('~/.vim/neobundlelazy.toml', {'lazy' : 1} )
+NeoBundleSaveCache
+
+call neobundle#end()
+
+filetype plugin indent on
+NeoBundleCheck
 
 "------------------------------------------------------------
 " * 基本の設定
@@ -206,7 +176,6 @@ hi DiffText   ctermfg=black ctermbg=7
 "------------------------------------------------------------
 " * neocomplete
 "------------------------------------------------------------
-
 let g:neocomplete#enable_at_startup = 1 " 起動時に有効化
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_camel_case_completion = 0
@@ -246,7 +215,6 @@ hi PmenuSbar ctermbg=0
 "------------------------------------------------------------
 " * Unite.vim
 "------------------------------------------------------------
-
 " insert modeで開始
 let g:unite_enable_start_insert=1
 
@@ -311,7 +279,6 @@ endif
 "------------------------------------------------------------
 " * VimFiler
 "------------------------------------------------------------
-
 " Space で起動
 nnoremap <Space> :<C-u>VimFiler<CR>
 let g:vimfiler_as_default_explorer=1
@@ -324,7 +291,6 @@ endfunction
 "------------------------------------------------------------
 " * EasyMotion
 "------------------------------------------------------------
-
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 " Turn on case sensitive feature
@@ -384,7 +350,6 @@ nnoremap <silent> mf :<C-u>VimFiler <C-r>=expand(g:memolist_path."/")<CR><CR>
 "------------------------------------------------------------
 " * zen-coding
 "------------------------------------------------------------
-
 " codaのデフォルトと一緒にする
 imap <C-E> <C-Y>,
 let g:user_zen_leader_key = '<C-Y>'
@@ -403,7 +368,6 @@ nnoremap <silent> ,sa :<C-u>call RunAllSpecs()<CR>
 "------------------------------------------------------------
 " * vim-quickrun
 "------------------------------------------------------------
-
 silent! nmap <C-r> <Plug>(quickrun)
 " 実行結果を下に表示
 " 実行後に出力バッファにカーソルを移動(qで閉じる)
@@ -421,10 +385,10 @@ let g:quickrun_config.markdown = {
       \ 'exec'      : '%c %o %a %s',
       \ }
 
+
 "------------------------------------------------------------
 " * vim-go
 "------------------------------------------------------------
-
 au FileType go nmap gi <Plug>(go-info)
 au FileType go nmap gd <Plug>(go-def)
 au FileType go nmap gt <Plug>(go-test)
