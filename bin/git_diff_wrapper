@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ -e /Applications/MacVim.app ]; then
+  /Applications/MacVim.app/Contents/MacOS/vimdiff "$2" "$5"
+else
+  vimdiff "$2" "$5"
+fi

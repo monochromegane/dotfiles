@@ -32,4 +32,4 @@
 [merge]
     tool = vimdiff
 [ghq]
-  root = ~/src
+    root = ~/src
