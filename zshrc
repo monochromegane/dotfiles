@@ -14,3 +14,6 @@ export GOPATH="$HOME"
 export PATH="$GOPATH/bin:$PATH"
 
 eval "$(direnv hook zsh)"
+
+# local settings
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
