@@ -9,7 +9,6 @@ alias beu="bundle exec rails unicorn -c config/unicorn.rb"
 alias rakt="rake -T"
 alias rakr="rake routes"
 alias rake="noglob rake"
-compdef -d rake
 
 alias cdd="cd ~/Documents"
 alias f="fg"
