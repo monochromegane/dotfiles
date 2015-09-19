@@ -203,7 +203,7 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 " スニペットファイル
-let g:neosnippet#snippets_directory='~/dotfiles/snippets'
+let g:neosnippet#snippets_directory='~/.vim/snippets'
 
 " 補完ポップアップのカラー設定
 hi Pmenu ctermfg=7
