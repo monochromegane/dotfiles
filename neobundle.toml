@@ -5,7 +5,7 @@ repository = 'The-NERD-Commenter'
 repository = 'AutoClose'
 
 [[plugins]]
-repository = 'quickhl.vim'
+repository = 't9md/vim-quickhl'
 
 [[plugins]]
 repository = 'endwise.vim'
@@ -87,6 +87,9 @@ repository = 'fatih/vim-go'
 
 [[plugins]]
 repository = 'glidenote/memolist.vim'
+
+[[plugins]]
+repository = 'tomlion/vim-solidity'
 
 [[plugins]]
 repository = 'Shougo/vimproc.vim'
