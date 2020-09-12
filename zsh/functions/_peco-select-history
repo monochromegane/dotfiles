@@ -1,0 +1,8 @@
+function _exists { which $1 &> /dev/null }
+function _peco-select-history() {
+    local tac
+    _exists gtac && tac="gtac" || { _exists tac && tac="tac" || { tac="tail -r" } }
+    BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER")
+    CURSOR=$#BUFFER         # move cursor
+    zle -R -c               # refresh
+}
