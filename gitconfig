@@ -33,3 +33,4 @@
     tool = vimdiff
 [ghq]
     root = ~/src
+    vcs = git
