@@ -32,7 +32,7 @@ function install_packages {
   type vim
   if [ $? -ne 0 ]; then
     is_debian && sudo apt-get -y install vim
-    is_osx    && brew install vim
+    is_osx    && brew install vim --with-lua
     is_centos && sudo yum -y install vim
   fi
 
