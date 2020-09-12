@@ -1,8 +1,0 @@
-[[plugins]]
-repository = 'slim-template/vim-slim'
-filetypes  = 'slim'
-
-[[plugins]]
-repository = 'cespare/vim-toml'
-filetypes  = 'toml'
-

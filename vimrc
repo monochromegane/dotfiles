@@ -1,26 +1,30 @@
 "------------------------------------------------------------
-" * Vundle Plugin
+" * minpac
 "------------------------------------------------------------
-
-if has('vim_starting')
-  if &compatible
-    set nocompatible
-  endif
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if &compatible
+  set nocompatible
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+packadd minpac
+call minpac#init()
+call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-call neobundle#load_cache()
-NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#load_toml('~/.vim/neobundle.toml')
-call neobundle#load_toml('~/.vim/neobundlelazy.toml', {'lazy' : 1} )
-NeoBundleSaveCache
-
-call neobundle#end()
-
-filetype plugin indent on
-NeoBundleCheck
+" plugins
+call minpac#add('Shougo/vimproc.vim', {'do': {-> system('make -f make_mac.mak')}})
+call minpac#add('Shougo/unite.vim')
+call minpac#add('Shougo/vimfiler')
+call minpac#add('tomtom/tcomment_vim')
+call minpac#add('kana/vim-textobj-user')
+call minpac#add('osyo-manga/vim-textobj-multiblock')
+call minpac#add('cohama/lexima.vim')
+call minpac#add('bling/vim-airline')
+call minpac#add('tpope/vim-surround')
+call minpac#add('prabirshrestha/async.vim')
+call minpac#add('prabirshrestha/asyncomplete.vim')
+call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
+call minpac#add('prabirshrestha/vim-lsp')
+call minpac#add('mattn/vim-lsp-settings')
+call minpac#add('mattn/vim-goimports')
 
 "------------------------------------------------------------
 " * 基本の設定
@@ -132,17 +136,18 @@ map Y y$
 nmap <Esc><Esc> :nohlsearch<CR>
 nmap <C-l>      :nohlsearch<CR>
 
-" 前後のバッファへ移動
-nnoremap <C-k> :bp<CR>
-nnoremap <C-j> :bn<CR>
+" 前後のQuickFixへ移動
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-k> :cprevious<CR>
+
 " バッファを削除
 nnoremap ,D :bd<CR>
 
 " set numberのトグル
 nnoremap tn :setl number! number?<CR>
 
-" Ctrl+d または Ctrl+lでEsc
-inoremap <C-d> <Esc>
+" Ctrl+lでEsc
+inoremap <C-l> <Esc>
 vnoremap <C-l> <Esc>
 
 " Commandモードの履歴移動
@@ -154,15 +159,34 @@ nnoremap Q  :qa<CR>
 nnoremap ,S :suspend<CR>
 
 "------------------------------------------------------------
-" * autocmd
+" * 補完
 "------------------------------------------------------------
-if has("autocmd")
-  autocmd FileType php setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType go  setlocal sw=8 sts=8 ts=8 noet
-  " md as markdown, instead of modula2
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
-endif
 
+" 動作を統一するため（候補が1件でも）必ず選択してから補完
+set completeopt=menuone,noinsert
+
+" キーマップ
+inoremap <expr><C-i> pumvisible() ? "\<C-y>" : "\<C-i>"
+inoremap <expr><C-j> pumvisible() ? "<Down>" : "<C-j>"
+inoremap <expr><C-k> pumvisible() ? "<Up>" : "<C-k>"
+
+inoremap <C-F> <C-X><C-F>
+inoremap <C-Space> <C-X><C-P>
+
+" 補完ポップアップのカラー設定
+hi Pmenu ctermfg=7
+hi Pmenu ctermbg=8
+hi PmenuSel ctermbg=3
+hi PmenuSbar ctermbg=0
+
+" Ctrl+Spaceを有効にする
+if !has('gui_running')
+  augroup term_vim_c_space
+    autocmd!
+    autocmd VimEnter * map <Nul> <C-Space>
+    autocmd VimEnter * map! <Nul> <C-Space>
+  augroup END
+endif
 
 "------------------------------------------------------------
 " * VimDiff
@@ -171,46 +195,6 @@ hi DiffAdd    ctermfg=black ctermbg=2
 hi DiffChange ctermfg=black ctermbg=3
 hi DiffDelete ctermfg=black ctermbg=6
 hi DiffText   ctermfg=black ctermbg=7
-
-
-"------------------------------------------------------------
-" * neocomplete
-"------------------------------------------------------------
-let g:neocomplete#enable_at_startup = 1 " 起動時に有効化
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_camel_case_completion = 0
-let g:neocomplete#enable_underbar_completion = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-" ポップアップの操作
-inoremap <expr><c-l> pumvisible() ? neocomplete#close_popup()."\<Esc>" : "\<Esc>"
-inoremap <expr><c-c> neocomplete#cancel_popup()
-inoremap <expr><BS>  neocomplete#smart_close_popup()."\<c-h>"
-inoremap <expr><c-h> neocomplete#smart_close_popup()."\<c-h>"
-" Ctrl+j, k で候補を移動
-inoremap <expr><c-j> pumvisible() ? "\<C-n>" : "\<c-j>"
-inoremap <expr><c-k> pumvisible() ? "\<C-p>" : "\<c-k>"
-" Ctrl+i or Tab でSnippetsを展開
-imap <C-i> <Plug>(neosnippet_expand_or_jump)
-smap <C-i> <Plug>(neosnippet_expand_or_jump)
-" ポップアップ、タグが存在しない場合は通常のTabを入力
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-" スニペットファイル
-let g:neosnippet#snippets_directory='~/.vim/snippets'
-
-" 補完ポップアップのカラー設定
-hi Pmenu ctermfg=7
-hi Pmenu ctermbg=8
-hi PmenuSel ctermbg=3
-hi PmenuSbar ctermbg=0
-
 
 "------------------------------------------------------------
 " * Unite.vim
@@ -234,8 +218,8 @@ nnoremap <silent> ,e  :<C-u>Unite file_rec/async<CR>
 nnoremap <silent> ,v  :<C-u>Unite buffer<CR>
 " 常用セット
 nnoremap <silent> ,u  :<C-u>Unite buffer file_rec/async<CR>
-" 最近使用したファイル一覧
-nnoremap <silent> ,m  :<C-u>Unite file_mru<CR>
+" " 最近使用したファイル一覧
+" nnoremap <silent> ,m  :<C-u>Unite file_mru<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
 nnoremap <silent> ,d  :<C-u>UniteWithBufferDir file<CR>
 " find検索
@@ -289,47 +273,6 @@ function! s:my_vimfiler_settings()
 endfunction
 
 "------------------------------------------------------------
-" * EasyMotion
-"------------------------------------------------------------
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" Turn on case sensitive feature
-let g:EasyMotion_smartcase = 1
-
-" ホームポジションに近いキーを使う
-let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
-" 1 ストローク選択を優先する
-let g:EasyMotion_grouping=1
-" カラー設定変更
-hi EasyMotionTarget ctermbg=none ctermfg=red
-hi EasyMotionShade  ctermbg=none ctermfg=blue
-
-" J, K で前後の行移動
-nmap J <Plug>(easymotion-j)
-nmap K <Plug>(easymotion-k)
-
-" s{char}{char}{label} で任意の2文字から始まるところへ移動
-nmap s <Plug>(easymotion-s2)
-
-" g/ で検索、Enterでラベルによる移動
-nmap g/ <Plug>(easymotion-sn)
-
-
-"------------------------------------------------------------
-" * vim-alignta
-"------------------------------------------------------------
-let g:alignta_default_arguments="="
-vnoremap al :Alignta<Space><CR>
-vnoremap ah :Alignta <<0 \ /1<CR>
-
-
-"------------------------------------------------------------
-" * syntastic
-"------------------------------------------------------------
-let g:syntastic_always_populate_loc_list = 1
-
-
-"------------------------------------------------------------
 " * textobj-multiblock
 "------------------------------------------------------------
 omap ak <Plug>(textobj-multiblock-a)
@@ -337,59 +280,15 @@ omap ik <Plug>(textobj-multiblock-i)
 xmap ak <Plug>(textobj-multiblock-a)
 xmap ik <Plug>(textobj-multiblock-i)
 
-
 "------------------------------------------------------------
-" * memolist.vim
+" * vim-lsp
 "------------------------------------------------------------
-nnoremap <silent> mn :<C-u>MemoNew<CR>
-nnoremap <silent> ml :<C-u>Unite file:<C-r>=expand(g:memolist_path."/")<CR><CR>
-nnoremap <silent> mg :<C-u>Unite grep:<C-r>=expand(g:memolist_path."/")<CR><CR>
-nnoremap <silent> mf :<C-u>VimFiler <C-r>=expand(g:memolist_path."/")<CR><CR>
+nmap <silent> gd :LspDefinition<CR>
+nmap <silent> gk :LspHover<CR>
 
-
-"------------------------------------------------------------
-" * zen-coding
-"------------------------------------------------------------
-" codaのデフォルトと一緒にする
-imap <C-E> <C-Y>,
-let g:user_zen_leader_key = '<C-Y>'
-
-
-"------------------------------------------------------------
-" * vim-rspec
-"------------------------------------------------------------
-let g:rspec_command = "Dispatch bin/rspec {spec}"
-
-nnoremap <silent> ,sf :<C-u>call RunCurrentSpecFile()<CR>
-nnoremap <silent> ,sc :<C-u>call RunNearestSpec()<CR>
-nnoremap <silent> ,ss :<C-u>call RunLastSpec()<CR>
-nnoremap <silent> ,sa :<C-u>call RunAllSpecs()<CR>
-
-"------------------------------------------------------------
-" * vim-quickrun
-"------------------------------------------------------------
-silent! nmap <C-r> <Plug>(quickrun)
-" 実行結果を下に表示
-" 実行後に出力バッファにカーソルを移動(qで閉じる)
-let g:quickrun_config = {
-  \ "*" : { 'split' : ''},
-  \ "_" : { "outputter/buffer/into" : 1,},}
-set splitbelow
-
-" markdownをMarkedで開く
-let g:quickrun_config.markdown = {
-      \ 'outputter' : 'null',
-      \ 'command'   : 'open',
-      \ 'cmdopt'    : '-a',
-      \ 'args'      : 'Marked',
-      \ 'exec'      : '%c %o %a %s',
-      \ }
-
-
-"------------------------------------------------------------
-" * vim-go
-"------------------------------------------------------------
-au FileType go nmap gi <Plug>(go-info)
-au FileType go nmap gd <Plug>(go-def)
-au FileType go nmap gt <Plug>(go-test)
-let g:go_fmt_command = "goimports"
+let g:lsp_diagnostics_enabled = 0
+let g:lsp_diagnostics_echo_cursor = 0
+let g:asyncomplete_auto_popup = 0
+let g:asyncomplete_auto_completeopt = 0
+let g:asyncomplete_popup_delay = 200
+let g:lsp_text_edit_enabled = 0
