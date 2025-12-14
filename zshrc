@@ -7,8 +7,8 @@ setopt prompt_subst
 
 # History
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=20000
+SAVEHIST=20000
 setopt hist_ignore_all_dups
 setopt hist_ignore_dups
 setopt hist_ignore_space
@@ -24,10 +24,10 @@ if [ -d ~/.rbenv ]; then
 fi
 
 # Python
+export PATH=$HOME/.local/bin:$PATH
 if [ -d ~/.pyenv ]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --no-rehash -)"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
 fi
 
 # Node
