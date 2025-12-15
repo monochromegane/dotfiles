@@ -1,0 +1,12 @@
+brew "ghq"
+brew "git"
+brew "jq"
+brew "peco"
+brew "tig"
+brew "tmux"
+brew "tree"
+brew "vim"
+brew "zsh"
+
+cask "karabiner-elements"
+cask "iterm2"

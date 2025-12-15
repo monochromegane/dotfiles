@@ -1,4 +1,4 @@
-fpath=(~/.zsh/functions $fpath)
+fpath=(~/.config/zsh/.zsh/functions $fpath)
 
 # Prompt
 autoload -U colors; colors
@@ -49,7 +49,7 @@ zstyle ':completion:*' recent-dirs-insert both
 # completion
 export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-source ~/.zsh/incr.zsh
+source ~/.config/zsh/.zsh/incr.zsh
 
 # peco
 zle -N peco-ghq _peco-ghq
