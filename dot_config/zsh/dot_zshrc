@@ -83,6 +83,7 @@ alias gcp='git checkout `git branch | peco | sed -e "s/\* //g" | awk "{print \$1
 alias gcop='gcp'
 alias ggpush='git push origin $(_git_current_branch)'
 alias ggpull='git pull origin $(_git_current_branch)'
+alias cz=chezmoi
 
 # autoload
 autoload -Uz _git-prompt-info
