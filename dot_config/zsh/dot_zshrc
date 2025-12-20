@@ -1,4 +1,4 @@
-fpath=(~/.zsh/functions $fpath)
+fpath=(~/.config/zsh/.zsh/functions $fpath)
 
 # Prompt
 autoload -U colors; colors
@@ -49,7 +49,7 @@ zstyle ':completion:*' recent-dirs-insert both
 # completion
 export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-source ~/.zsh/incr.zsh
+source ~/.config/zsh/.zsh/incr.zsh
 
 # peco
 zle -N peco-ghq _peco-ghq
@@ -83,6 +83,7 @@ alias gcp='git checkout `git branch | peco | sed -e "s/\* //g" | awk "{print \$1
 alias gcop='gcp'
 alias ggpush='git push origin $(_git_current_branch)'
 alias ggpull='git pull origin $(_git_current_branch)'
+alias cz=chezmoi
 
 # autoload
 autoload -Uz _git-prompt-info
