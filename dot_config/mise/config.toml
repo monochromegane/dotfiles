@@ -1,0 +1,6 @@
+[tools]
+go = "latest"
+node = "latest"
+python = "latest"
+ruby = "latest"
+uv = "latest"

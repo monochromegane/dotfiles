@@ -21,6 +21,10 @@ function install_minpac() {
 }
 
 function setup_minpac() {
+  echo
+  echo "## Setup minpac"
+  echo
+
   if ! is_vim_exists; then
     return
   fi

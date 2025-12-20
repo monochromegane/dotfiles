@@ -33,6 +33,10 @@ function set_path_brew() {
 }
 
 function setup_brew() {
+  echo
+  echo "## Setup brew"
+  echo
+
   install_homebrew
   set_path_brew
   opt_out_of_analytics
