@@ -13,31 +13,11 @@ setopt hist_ignore_all_dups
 setopt hist_ignore_dups
 setopt hist_ignore_space
 
+export PATH=$HOME/.local/bin:$PATH
+
 # Golang
 export GOPATH="$HOME"
 export PATH="$GOPATH/bin:$PATH"
-
-# Ruby
-if [ -d ~/.rbenv ]; then
-  export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
-  eval "$(rbenv init --no-rehash -)"
-fi
-
-# Python
-export PATH=$HOME/.local/bin:$PATH
-if [ -d ~/.pyenv ]; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-fi
-
-# Node
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
-# direnv
-which direnv > /dev/null 2>&1
-if [ $? -ne 1 ]; then
-    eval "$(direnv hook zsh)"
-fi
 
 # cdr
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
