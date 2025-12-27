@@ -1,0 +1,24 @@
+command = /opt/homebrew/bin/zsh -l
+mouse-hide-while-typing = true
+
+# Theme
+theme = Dracula+
+background = #0f1015
+
+# Title bar
+macos-titlebar-proxy-icon = hidden
+
+# Font
+font-family = Moralerspace Neon
+font-thicken = true
+font-thicken-strength = 1
+font-feature = -dlig
+font-size = 15
+
+# Cursor
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+
+# TERM
+term = "xterm-256color"

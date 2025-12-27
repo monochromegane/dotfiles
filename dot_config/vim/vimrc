@@ -25,6 +25,7 @@ call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
 call minpac#add('prabirshrestha/vim-lsp')
 call minpac#add('mattn/vim-lsp-settings')
 call minpac#add('mattn/vim-goimports')
+call minpac#add('dracula/vim', {'name': 'dracula'})
 
 "------------------------------------------------------------
 " * 基本の設定
@@ -109,7 +110,17 @@ set expandtab
 set t_Co=256
 
 "colorschemeを設定する
-colorscheme default
+function! s:customize_dracula_bg() abort
+  highlight Normal       ctermbg=None
+  highlight CursorLine   ctermbg=None cterm=underline
+endfunction
+
+augroup DraculaCustomization
+  autocmd!
+  autocmd ColorScheme dracula call s:customize_dracula_bg()
+augroup END
+
+colorscheme dracula
 
 "カーソル行の強調表示
 set cursorline
