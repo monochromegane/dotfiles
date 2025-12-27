@@ -9,5 +9,7 @@ brew "vim"
 brew "zsh"
 
 cask "1password-cli"
+cask "font-moralerspace"
+cask "ghostty"
 cask "karabiner-elements"
 cask "iterm2"
