@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+    ],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(sudo:*)",
+      "Bash(git push:*)",
+      "Read(.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ]
+  },
+  "includeCoAuthoredBy": false,
+  "theme": "dark"
+}
