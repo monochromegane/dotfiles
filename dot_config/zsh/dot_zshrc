@@ -53,6 +53,10 @@ alias vi=vim
 alias gs="git status -s -b && git stash list"
 alias be='bundle exec'
 alias bi='bundle install'
+
+# git-wt
+eval "$(git wt --init zsh)"
+
 alias rake="noglob rake"
 alias f="fg"
 alias bundle='nocorrect bundle'
@@ -70,3 +74,6 @@ autoload -Uz _git-prompt-info
 autoload -Uz _git_current_branch
 autoload -Uz _peco-select-history
 autoload -Uz _peco-ghq
+autoload -Uz _tmuxpopup
+autoload -Uz _tmuxpopup-claude
+autoload -Uz _tmuxpopup-ccmanager

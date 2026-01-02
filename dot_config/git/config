@@ -34,3 +34,9 @@
 [ghq]
     root = ~/src
     vcs = git
+[worktree]
+    useRelativePaths = true
+[wt]
+    nocopy = *.log
+    nocopy = .venv/
+    nocopy = vendor/
