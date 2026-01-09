@@ -4,7 +4,7 @@
     external = git_diff_wrapper
 [core]
     editor = git_editor_wrapper
-    excludesfile = ~/.gitignore
+    excludesfile = ~/.config/git/ignore
 [pager]
     diff =
 [color]
@@ -37,6 +37,9 @@
 [worktree]
     useRelativePaths = true
 [wt]
+    copyignored = true
     nocopy = *.log
     nocopy = .venv/
     nocopy = vendor/
+[init]
+    defaultBranch = main
