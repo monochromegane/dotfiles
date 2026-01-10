@@ -1,0 +1,57 @@
+MODULE = github.com/{{ .username }}/{{ .appname }}
+VERSION = $(shell gobump show -r cmd)
+CURRENT_REVISION = $(shell git rev-parse --short HEAD)
+BUILD_LDFLAGS = "-s -w -X $(MODULE)/cmd.revision=$(CURRENT_REVISION)"
+DIST_DIR = dist
+u := $(if $(update),-u)
+
+.PHONY: default
+default: test
+
+.PHONY: fmt
+fmt:
+	go fmt ./...
+
+.PHONY: vet
+vet:
+	go vet ./...
+
+.PHONY: test
+test:
+	go test ./...
+
+.PHONY: deps
+deps:
+	go get ${u}
+	go mod tidy
+
+.PHONY: devel-deps
+devel-deps:
+	go install github.com/Songmu/gocredits/cmd/gocredits@latest
+	go install github.com/Songmu/goxz/cmd/goxz@latest
+	go install github.com/x-motemen/gobump/cmd/gobump@latest
+	go install github.com/tcnksm/ghr@latest
+
+.PHONY: credits
+credits: go.sum deps devel-deps
+	gocredits -skip-missing -w
+
+.PHONY: build
+build: credits
+	go build -ldflags=$(BUILD_LDFLAGS)
+
+.PHONY: install
+install: credits
+	go install -ldflags=$(BUILD_LDFLAGS)
+
+.PHONY: cross-build
+cross-build: credits
+	rm -rf $(DIST_DIR)
+	goxz -pv=v$(VERSION) -build-ldflags=$(BUILD_LDFLAGS) -static -d $(DIST_DIR) .
+
+.PHONY: upload
+upload:
+	ghr v$(VERSION) $(DIST_DIR)
+
+.PHONY: release
+release: cross-build upload
