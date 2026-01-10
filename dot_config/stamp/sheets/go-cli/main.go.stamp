@@ -1,0 +1,16 @@
+package main
+
+import (
+	"fmt"
+	"os"
+
+	"github.com/{{ .username }}/{{ .appname }}/cmd"
+)
+
+func main() {
+	cli := cmd.NewCLI()
+	if err := cli.Execute(os.Args[1:]); err != nil {
+		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+		os.Exit(1)
+	}
+}

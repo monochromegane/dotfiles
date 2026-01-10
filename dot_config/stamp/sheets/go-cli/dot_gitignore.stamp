@@ -1,0 +1,6 @@
+CREDITS
+.env
+.env.*
+dist/
+{{ .appname }}
+!{{ .appname }}/

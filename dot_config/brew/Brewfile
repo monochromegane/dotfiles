@@ -1,4 +1,5 @@
 tap "k1LoW/tap"
+tap "monochromegane/tap"
 
 brew "ghq"
 brew "git"
@@ -6,6 +7,7 @@ brew "jq"
 brew "k1LoW/tap/git-wt"
 brew "peco"
 brew "podman"
+brew "monochromegane/tap/stamp"
 brew "tig"
 brew "tmux"
 brew "tree"

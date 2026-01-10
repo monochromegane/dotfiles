@@ -1,0 +1,19 @@
+# {{ .appname }}
+
+[![Actions Status](https://github.com/{{ .username }}/{{ .appname }}/actions/workflows/test.yaml/badge.svg?branch=main)][actions]
+
+[actions]: https://github.com/{{ .username }}/{{ .appname }}/actions?workflow=test
+
+An awesome CLI tool built with Go.
+
+## Usage
+
+## Install
+
+## License
+
+MIT
+
+## Author
+
+[{{ .username }}](https://github.com/{{ .username }})
