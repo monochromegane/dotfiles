@@ -1,6 +1,7 @@
 [tools]
 devcontainer-cli = "latest"
 go = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
 node = "latest"
 "npm:ccmanager" = "3.2.3"
 python = "latest"
