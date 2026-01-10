@@ -6,4 +6,3 @@ export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_STATE_HOME="$HOME"/.local/state
 
 export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME"/claude
-export CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR=1

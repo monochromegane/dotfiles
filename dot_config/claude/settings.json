@@ -1,6 +1,8 @@
 {
   "permissions": {
+    "defaultMode": "plan",
     "allow": [
+      "Bash(git diff:*)"
     ],
     "deny": [
       "Bash(rm -rf:*)",
@@ -11,6 +13,17 @@
       "Read(./secrets/**)"
     ]
   },
-  "includeCoAuthoredBy": false,
-  "theme": "dark"
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "theme": "dark",
+  "env": {
+    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": 1,
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1
+  },
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true
+  }
 }
