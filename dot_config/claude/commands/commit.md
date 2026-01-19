@@ -6,8 +6,8 @@ description: Analyze changes and create a commit with an appropriate one-line me
 ## Context
 
 - Current git status: !`git status`
-- Staged changes: !`git diff --staged`
-- Unstaged changes: !`git diff`
+- Staged changes: !`git diff --no-ext-diff --staged`
+- Unstaged changes: !`git diff --no-ext-diff`
 - Recent commit messages (for style reference): !`git log --oneline -5`
 
 ## Your task
