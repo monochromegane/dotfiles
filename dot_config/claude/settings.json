@@ -2,7 +2,10 @@
   "permissions": {
     "defaultMode": "plan",
     "allow": [
-      "Bash(git diff:*)"
+      "Bash(git diff:*)",
+      "Bash(go test:*)",
+      "Bash(go vet:*)",
+      "Bash(go run:*)"
     ],
     "deny": [
       "Bash(rm -rf:*)",
