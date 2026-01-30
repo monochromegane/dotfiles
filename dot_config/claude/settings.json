@@ -3,9 +3,23 @@
     "defaultMode": "plan",
     "allow": [
       "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git status:*)",
+      "Bash(git show:*)",
       "Bash(go test:*)",
       "Bash(go vet:*)",
-      "Bash(go run:*)"
+      "Bash(go run:*)",
+      "Bash(uv sync:*)",
+      "Bash(uv add:*)",
+      "Bash(uv remove:*)",
+      "Bash(uv lock:*)",
+      "Bash(uv python:*)",
+      "Bash(uv pip list:*)",
+      "Bash(uv pip show:*)",
+      "Bash(uv tree:*)",
+      "Bash(uv run python:*)",
+      "Bash(tree:*)",
+      "Bash(ls:*)"
     ],
     "deny": [
       "Bash(rm -rf:*)",
