@@ -1,10 +1,12 @@
 tap "k1LoW/tap"
 tap "monochromegane/tap"
 
+brew "fzf"
 brew "ghq"
 brew "git"
 brew "jq"
 brew "k1LoW/tap/git-wt"
+brew "k1LoW/tap/tcmux"
 brew "peco"
 brew "podman"
 brew "monochromegane/tap/stamp"
