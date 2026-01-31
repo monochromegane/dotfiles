@@ -31,13 +31,15 @@ export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 source ~/.config/zsh/.zsh/incr.zsh
 
-# peco
-zle -N peco-ghq _peco-ghq
-setopt noflowcontrol # Workaround for using ^S
-bindkey '^S' peco-ghq
+# fzf
+export FZF_DEFAULT_OPTS='--reverse --height 40% --color=pointer:24'
 
-zle -N peco-select-history _peco-select-history
-bindkey '^R' peco-select-history
+zle -N fzf-ghq _fzf-ghq
+setopt noflowcontrol # Workaround for using ^S
+bindkey '^S' fzf-ghq
+
+zle -N fzf-select-history _fzf-select-history
+bindkey '^R' fzf-select-history
 
 # alias
 alias ls='ls -G'
@@ -61,10 +63,6 @@ alias rake="noglob rake"
 alias f="fg"
 alias bundle='nocorrect bundle'
 function cd() {builtin cd $@ && ls}
-p() { peco | while read LINE; do $@ $LINE; done }
-alias s='ghq list -p | p cd'
-alias gcp='git checkout `git branch | peco | sed -e "s/\* //g" | awk "{print \$1}"`'
-alias gcop='gcp'
 alias ggpush='git push origin $(_git_current_branch)'
 alias ggpull='git pull origin $(_git_current_branch)'
 alias cz=chezmoi
@@ -72,8 +70,8 @@ alias cz=chezmoi
 # autoload
 autoload -Uz _git-prompt-info
 autoload -Uz _git_current_branch
-autoload -Uz _peco-select-history
-autoload -Uz _peco-ghq
+autoload -Uz _fzf-select-history
+autoload -Uz _fzf-ghq
 autoload -Uz _tmuxpopup
 autoload -Uz _tmuxpopup-claude
 autoload -Uz _tmuxpopup-ccmanager
