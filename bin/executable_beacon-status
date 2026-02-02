@@ -1,0 +1,48 @@
+#!/bin/bash
+output=$(beacon scan --scope session --template '{{range .Signals}}{{.State}} {{end}}' 2>/dev/null)
+
+waiting=0
+idle=0
+started=0
+running=0
+
+for state in $output; do
+    case "$state" in
+        waiting) waiting=1 ;;
+        idle) idle=1 ;;
+        started) started=1 ;;
+        running) running=1 ;;
+    esac
+done
+
+result=""
+
+# idle: シアン or 白
+if [ $idle -eq 1 ]; then
+    result="${result}#[fg=cyan]⏺#[default]"
+else
+    result="${result}#[fg=white]⏺#[default]"
+fi
+
+# running: 緑 or 白
+if [ $running -eq 1 ]; then
+    result="${result}#[fg=green]⏺#[default]"
+else
+    result="${result}#[fg=white]⏺#[default]"
+fi
+
+# waiting: 黄色 or 白
+if [ $waiting -eq 1 ]; then
+    result="${result}#[fg=yellow]⏺#[default]"
+else
+    result="${result}#[fg=white]⏺#[default]"
+fi
+
+# started: 青 or 白
+if [ $started -eq 1 ]; then
+    result="${result}#[fg=blue]⏺#[default]"
+else
+    result="${result}#[fg=white]⏺#[default]"
+fi
+
+echo -n "$result"
