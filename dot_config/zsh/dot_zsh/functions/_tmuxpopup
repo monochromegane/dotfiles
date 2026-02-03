@@ -8,6 +8,9 @@ function _tmuxpopup() {
   local session
   session="$(tmux display-message -p -F '#{session_name}' 2>/dev/null)" || return 1
 
+  local window_index
+  window_index="$(tmux display-message -p -F '#{window_index}')" || return 1
+
   local pane_path
   pane_path="$(tmux display-message -p -F '#{pane_current_path}')" || return 1
 
@@ -36,10 +39,16 @@ function _tmuxpopup() {
   fi
 
   local exec_cmd
-  if [[ -n "$initial_cmd" ]]; then
-    exec_cmd="tmux attach -t ${popup_session} || tmux new -s ${popup_session} '${initial_cmd}'"
+  if tmux has-session -t "${popup_session}" 2>/dev/null; then
+    # Session exists, just attach
+    exec_cmd="tmux attach -t ${popup_session}"
   else
-    exec_cmd="tmux attach -t ${popup_session} || tmux new -s ${popup_session}"
+    # New session: save origin session info as environment variables
+    if [[ -n "$initial_cmd" ]]; then
+      exec_cmd="tmux new -s ${popup_session} -e POPUP_ORIGIN_SESSION=${session} -e POPUP_ORIGIN_WINDOW=${window_index} '${initial_cmd}'"
+    else
+      exec_cmd="tmux new -s ${popup_session} -e POPUP_ORIGIN_SESSION=${session} -e POPUP_ORIGIN_WINDOW=${window_index}"
+    fi
   fi
 
   tmux display-popup \

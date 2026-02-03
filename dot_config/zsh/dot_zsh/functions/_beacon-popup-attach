@@ -1,0 +1,31 @@
+function _beacon-popup-attach() {
+  local popup_session="$1"
+
+  # Extract title from popup_${title}_... format
+  local title
+  title=$(echo "$popup_session" | sed 's/^popup_\([^_]*\)_.*/\1/')
+
+  # Get origin session/window info from tmux environment variables
+  local origin_session origin_window
+  origin_session=$(tmux show-environment -t "${popup_session}" POPUP_ORIGIN_SESSION 2>/dev/null | cut -d= -f2)
+  origin_window=$(tmux show-environment -t "${popup_session}" POPUP_ORIGIN_WINDOW 2>/dev/null | cut -d= -f2)
+
+  # Move to origin window before opening popup
+  if [[ -n "$origin_session" && -n "$origin_window" ]]; then
+    local current_session
+    current_session=$(tmux display-message -p '#{session_name}')
+
+    if [[ "$origin_session" != "$current_session" ]]; then
+      tmux switch-client -t "${origin_session}:${origin_window}"
+    else
+      tmux select-window -t ":${origin_window}"
+    fi
+  fi
+
+  # Open popup with attach
+  tmux display-popup \
+    -xC -yC \
+    -w '80%' -h '80%' \
+    -T "$title" \
+    -E "tmux attach -t '${popup_session}'"
+}

@@ -75,6 +75,8 @@ autoload -Uz _fzf-ghq
 autoload -Uz _tmuxpopup
 autoload -Uz _tmuxpopup-claude
 autoload -Uz _tmuxpopup-ccmanager
+autoload -Uz _beacon-select
+autoload -Uz _beacon-popup-attach
 
 # Load local configuration if it exists
 [[ -f ~/.config/zsh/.zshrc.local ]] && source ~/.config/zsh/.zshrc.local
