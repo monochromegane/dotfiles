@@ -7,7 +7,7 @@ function _beacon-select() {
   fi
 
   local selected
-  selected=$(beacon scan --scope all --color=always | \
+  selected=$(beacon scan --scope window -a --color=always | \
     fzf --ansi \
         --tmux 80%,50% \
         --delimiter=: \
