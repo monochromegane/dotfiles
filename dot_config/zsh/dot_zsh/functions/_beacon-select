@@ -1,0 +1,33 @@
+function _beacon-select() {
+  # Popup session guard: do nothing inside popup
+  local current_session
+  current_session=$(tmux display-message -p '#{session_name}')
+  if [[ "$current_session" == popup_* ]]; then
+    return 0
+  fi
+
+  local selected
+  selected=$(beacon scan --scope window -a --color=always | \
+    fzf --ansi \
+        --tmux 80%,50% \
+        --delimiter=: \
+        --preview 'tmux capture-pane -t {1}:{2} -p -e' \
+        --preview-window=right:50%)
+
+  [[ -z "$selected" ]] && return 0
+
+  local session_name window_index
+  session_name=$(echo "$selected" | cut -d: -f1)
+  window_index=$(echo "$selected" | cut -d: -f2)
+
+  # Popup session detection
+  if [[ "$session_name" == popup_* ]]; then
+    _beacon-popup-attach "$session_name"
+  else
+    if [[ "$session_name" == "$current_session" ]]; then
+      tmux select-window -t ":${window_index}"
+    else
+      tmux switch-client -t "${session_name}:${window_index}"
+    fi
+  fi
+}
