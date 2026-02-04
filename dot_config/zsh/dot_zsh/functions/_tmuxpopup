@@ -59,7 +59,7 @@ function _tmuxpopup() {
     fi
   fi
 
-  local display_title="${title} @ ${window_index}:${window_name}"
+  local display_title="${title} @ ${key}"
 
   tmux display-popup \
     -d "#{pane_current_path}" \
