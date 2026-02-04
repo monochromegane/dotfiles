@@ -1,9 +1,9 @@
 function _beacon-popup-attach() {
   local popup_session="$1"
 
-  # Extract title from popup_${title}_... format
-  local title
-  title=$(echo "$popup_session" | sed 's/^popup_\([^_]*\)_.*/\1/')
+  # Extract key from session name and format title
+  local key="${popup_session#p@}"
+  local title="Claude Code @ ${key}"
 
   # Get origin session/window info from tmux environment variables
   local origin_session origin_window

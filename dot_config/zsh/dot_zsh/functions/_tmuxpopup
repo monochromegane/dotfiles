@@ -11,29 +11,37 @@ function _tmuxpopup() {
   local window_index
   window_index="$(tmux display-message -p -F '#{window_index}')" || return 1
 
+  local window_name
+  window_name="$(tmux display-message -p -F '#{window_name}')" || return 1
+
   local pane_path
   pane_path="$(tmux display-message -p -F '#{pane_current_path}')" || return 1
 
-  local home_src="${HOME}/src"
   local key=""
 
-  if [[ "$pane_path" == ${home_src}/*/*/*(|/*) ]]; then
-    local rest="${pane_path#${home_src}/}"
-    local parts=(${(s:/:)rest})
-    local org="${parts[2]}"
-    local repo="${parts[3]}"
-    repo="${repo%-wt}"
-    key="${org}/${repo}"
+  if git -C "$pane_path" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    local common_dir
+    common_dir=$(git -C "$pane_path" rev-parse --git-common-dir)
+    local repo_name
+    if [[ "$common_dir" == ".git" ]]; then
+      # 通常git: repo名のみ
+      repo_name=$(basename "$(git -C "$pane_path" rev-parse --show-toplevel)")
+      key="${repo_name}"
+    else
+      # worktree: repo名 + branch名
+      repo_name=$(basename "$(dirname "$common_dir")")
+      local branch_name
+      branch_name=$(git -C "$pane_path" symbolic-ref --short HEAD 2>/dev/null || git -C "$pane_path" rev-parse --short HEAD)
+      key="${repo_name}/${branch_name}"
+    fi
   else
+    # 非git: ディレクトリ名
     key="${pane_path:t}"
   fi
 
-  local safe_key="${key//\//_}"
-  safe_key="${safe_key//[^A-Za-z0-9_.-]/_}"
+  local popup_session="p@${key}"
 
-  local popup_session="popup_${title}_${safe_key}"
-
-  if [[ "$session" == popup_* ]]; then
+  if [[ "$session" == p@* ]]; then
     tmux detach-client
     return 0
   fi
@@ -51,10 +59,12 @@ function _tmuxpopup() {
     fi
   fi
 
+  local display_title="${title} @ ${key}"
+
   tmux display-popup \
     -d "#{pane_current_path}" \
     -xC -yC \
     -w "$width" -h "$height" \
-    -T "$title" \
+    -T "$display_title" \
     -E "$exec_cmd"
 }
