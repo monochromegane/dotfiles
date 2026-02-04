@@ -1,6 +1,0 @@
-function _tmuxpopup-ccmanager() {
-  _tmuxpopup \
-    'ccmanager --devc-up-command "devcontainer up --docker-path podman --workspace-folder ." --devc-exec-command "devcontainer exec --docker-path podman --workspace-folder ."' \
-    'ccmanager'
-}
-
