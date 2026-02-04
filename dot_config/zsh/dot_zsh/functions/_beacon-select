@@ -2,7 +2,7 @@ function _beacon-select() {
   # Popup session guard: do nothing inside popup
   local current_session
   current_session=$(tmux display-message -p '#{session_name}')
-  if [[ "$current_session" == popup_* ]]; then
+  if [[ "$current_session" == p@* ]]; then
     return 0
   fi
 
@@ -21,7 +21,7 @@ function _beacon-select() {
   window_index=$(echo "$selected" | cut -d: -f2)
 
   # Popup session detection
-  if [[ "$session_name" == popup_* ]]; then
+  if [[ "$session_name" == p@* ]]; then
     _beacon-popup-attach "$session_name"
   else
     if [[ "$session_name" == "$current_session" ]]; then
