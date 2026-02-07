@@ -48,7 +48,7 @@
     "SessionStart": [
       {
         "hooks": [
-          { "type": "command", "command": "beacon emit" }
+          { "type": "command", "command": "beacon clean && beacon emit" }
         ]
       }
     ],
