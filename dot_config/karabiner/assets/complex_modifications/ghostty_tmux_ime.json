@@ -1,0 +1,40 @@
+{
+  "title": "Ghostty tmux IME control",
+  "rules": [
+    {
+      "description": "Turn off IME when pressing control+q in Ghostty",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.mitchellh\\.ghostty$"
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "japanese_eisuu"
+            },
+            {
+              "key_code": "q",
+              "modifiers": [
+                "control"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
