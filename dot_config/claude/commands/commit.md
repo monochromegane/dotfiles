@@ -22,6 +22,7 @@ Steps:
    - Focuses on "what" and "why", not "how"
    - Follows the style of recent commits in this repository
    - Is one line, under 72 characters
+   - Language: if `$ARGUMENTS` is "ja", write the message in Japanese; otherwise write in English
 4. Create the commit with the generated message
 5. Do NOT push to remote
 6. Report the commit hash and message when done
