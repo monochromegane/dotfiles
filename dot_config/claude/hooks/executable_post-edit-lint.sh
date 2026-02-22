@@ -16,11 +16,27 @@ case "${FILE_PATH##*.}" in
         fi
 
         FILE_DIR=$(dirname "$FILE_PATH")
-        VET_OUTPUT=$(cd "$FILE_DIR" && go vet "./..." 2>&1) || VET_EXIT=$?
-
-        if [[ -n "${VET_OUTPUT:-}" ]]; then
+        if ! VET_OUTPUT=$(cd "$FILE_DIR" && go vet "./..." 2>&1); then
             echo "go vet found issues:" >&2
             echo "$VET_OUTPUT" >&2
+            exit 2
+        fi
+        ;;
+    py)
+        # Skip if ruff is not installed (install with: uv tool install ruff)
+        if ! command -v ruff &>/dev/null; then
+            exit 0
+        fi
+
+        if ! FMT_OUTPUT=$(ruff format "$FILE_PATH" 2>&1); then
+            echo "ruff format failed:" >&2
+            echo "$FMT_OUTPUT" >&2
+            exit 2
+        fi
+
+        if ! LINT_OUTPUT=$(ruff check "$FILE_PATH" 2>&1); then
+            echo "ruff check found issues:" >&2
+            echo "$LINT_OUTPUT" >&2
             exit 2
         fi
         ;;
