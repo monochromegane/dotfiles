@@ -2,10 +2,7 @@
   "permissions": {
     "defaultMode": "plan",
     "allow": [
-      "Bash(git diff:*)",
-      "Bash(git log:*)",
-      "Bash(git status:*)",
-      "Bash(git show:*)",
+      "Bash(gitro:*)",
       "Bash(go test:*)",
       "Bash(go vet:*)",
       "Bash(go run:*)",
