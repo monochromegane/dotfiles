@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"math"
 	"os"
+	"os/exec"
+	"path/filepath"
 	"strings"
 )
 
@@ -19,6 +21,12 @@ type input struct {
 	Model struct {
 		DisplayName string `json:"display_name"`
 	} `json:"model"`
+	Workspace struct {
+		CurrentDir string `json:"current_dir"`
+	} `json:"workspace"`
+	Worktree *struct {
+		Branch string `json:"branch"`
+	} `json:"worktree"`
 	ContextWindow struct {
 		UsedPercentage float64 `json:"used_percentage"`
 	} `json:"context_window"`
@@ -66,6 +74,23 @@ func fmtMetric(label string, pct float64) string {
 	return fmt.Sprintf("%s%s%s %s%s%s %d%%", dim, label, reset, gradient(pct), brailleBar(pct, 8), reset, p)
 }
 
+func cwdLabel(d *input) string {
+	if d.Workspace.CurrentDir == "" {
+		return ""
+	}
+	dir := filepath.Base(d.Workspace.CurrentDir)
+	branch := ""
+	if d.Worktree != nil && d.Worktree.Branch != "" {
+		branch = d.Worktree.Branch
+	} else if out, err := exec.Command("git", "-C", d.Workspace.CurrentDir, "rev-parse", "--abbrev-ref", "HEAD").Output(); err == nil {
+		branch = strings.TrimSpace(string(out))
+	}
+	if branch != "" {
+		return fmt.Sprintf("%s %s(%s)%s", dir, dim, branch, reset)
+	}
+	return dir
+}
+
 func main() {
 	var d input
 	if err := json.NewDecoder(os.Stdin).Decode(&d); err != nil {
@@ -77,6 +102,10 @@ func main() {
 
 	if name := d.Model.DisplayName; name != "" {
 		parts = append(parts, name)
+	}
+
+	if dir := cwdLabel(&d); dir != "" {
+		parts = append(parts, dir)
 	}
 
 	parts = append(parts, fmtMetric("ctx", d.ContextWindow.UsedPercentage))
