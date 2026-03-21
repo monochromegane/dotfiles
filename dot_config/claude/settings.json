@@ -33,6 +33,10 @@
     "commit": "",
     "pr": ""
   },
+  "statusLine": {
+    "type": "command",
+    "command": "go run ~/.config/claude/statusline.go"
+  },
   "theme": "dark",
   "env": {
     "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": 1,
