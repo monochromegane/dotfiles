@@ -16,7 +16,9 @@
       "Bash(uv tree:*)",
       "Bash(uv run python:*)",
       "Bash(tree:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)"
     ],
     "deny": [
       "Bash(rm -rf:*)",

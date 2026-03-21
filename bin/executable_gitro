@@ -71,6 +71,9 @@ fi
 
 for cmd in $READONLY_COMMANDS; do
   if [ "$subcmd" = "$cmd" ]; then
+    # Disable external diff/pager for non-interactive use (e.g. Claude Code)
+    export GIT_EXTERNAL_DIFF=
+    export GIT_PAGER=cat
     exec git "$@"
   fi
 done
