@@ -1,8 +1,5 @@
-function _exists { which $1 &> /dev/null }
 function _fzf-select-history() {
-    local tac
-    _exists gtac && tac="gtac" || { _exists tac && tac="tac" || { tac="tail -r" } }
-    BUFFER=$(fc -l -n 1 | eval $tac | fzf --query "$LBUFFER" --no-sort)
+    BUFFER=$(fc -l -n 1 | fzf --tac --query "$LBUFFER" --scheme=history)
     CURSOR=$#BUFFER
     zle reset-prompt
 }
