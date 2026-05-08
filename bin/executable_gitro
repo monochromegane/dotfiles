@@ -71,9 +71,34 @@ fi
 
 for cmd in $READONLY_COMMANDS; do
   if [ "$subcmd" = "$cmd" ]; then
-    # Disable external diff/pager for non-interactive use (e.g. Claude Code)
-    export GIT_EXTERNAL_DIFF=
+    # Disable external diff/pager for non-interactive use (e.g. Claude Code).
+    # Note: setting GIT_EXTERNAL_DIFF="" or `-c diff.external=` makes git
+    # try to exec an empty command. Instead, unset the env var (which
+    # would otherwise override config) and rely on --no-ext-diff to
+    # bypass `diff.external` for subcommands that accept it.
+    unset GIT_EXTERNAL_DIFF
     export GIT_PAGER=cat
+
+    case "$subcmd" in
+      diff|log|show)
+        # Insert --no-ext-diff right after the subcommand, preserving
+        # any preceding global options and following subcommand args.
+        total=$#
+        i=0
+        inserted=0
+        while [ $i -lt $total ]; do
+          arg="$1"
+          shift
+          set -- "$@" "$arg"
+          if [ "$inserted" = "0" ] && [ "$arg" = "$subcmd" ]; then
+            set -- "$@" --no-ext-diff
+            inserted=1
+          fi
+          i=$((i + 1))
+        done
+        ;;
+    esac
+
     exec git "$@"
   fi
 done
