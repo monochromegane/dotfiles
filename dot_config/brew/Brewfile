@@ -1,5 +1,6 @@
 tap "k1LoW/tap"
 tap "monochromegane/tap"
+tap "manaflow-ai/cmux"
 
 brew "fzf"
 brew "ghq"
@@ -17,7 +18,9 @@ brew "vim"
 brew "zsh"
 
 cask "1password-cli"
-cask "claude-code"
+cask "claude-code@latest"
+cask "codex"
+cask "cmux"
 cask "font-moralerspace"
 cask "ghostty"
 cask "karabiner-elements"
