@@ -79,7 +79,11 @@
     "PreToolUse": [
       {
         "hooks": [
-          { "type": "command", "command": "beacon emit" }
+          { "type": "command", "command": "beacon emit" },
+          {
+            "type": "command",
+            "command": "$HOME/.config/claude/hooks/inject-date.sh"
+          }
         ]
       }
     ],
