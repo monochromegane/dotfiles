@@ -1,4 +1,9 @@
-fpath=(~/.config/zsh/.zsh/functions $fpath)
+# Homebrew's zsh ships its autoloadable functions (colors, compinit,
+# add-zsh-hook, bashcompinit, ...) under $HOMEBREW_PREFIX/share/zsh/functions.
+# `brew shellenv` exports $FPATH with a version-pinned Cellar path, which goes
+# stale after `brew upgrade zsh` and breaks autoload/compinit in new shells.
+# Re-add the version-independent path here so it keeps resolving across upgrades.
+fpath=(~/.config/zsh/.zsh/functions ${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh/functions $fpath)
 
 # Prompt
 autoload -U colors; colors
